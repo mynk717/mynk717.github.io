@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,105 +5,181 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mayank Shukla - Full-Stack MarTech Developer</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+  <script src="https://unpkg.com/@headlessui/react@latest/dist/headlessui.umd.js"></script>
+  <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+      color: #2c3e50;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 1rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      overflow: hidden;
+    }
+    a {
+      color: #2563eb;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+    h1, h2 {
+      margin-bottom: 1rem;
+      color: #1e40af;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+      color: #374151;
+    }
+    .profile-pic {
+      width: 112px;
+      height: 112px;
+      border-radius: 0.5rem;
+      object-fit: cover;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    }
+    .header {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .header-content {
+      flex-grow: 1;
+    }
+    .links {
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 1rem;
+      font-weight: 600;
+    }
+    #download-pdf-btn {
+      background-color: #2563eb;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-weight: 700;
+      border: none;
+    }
+    #download-pdf-btn:hover {
+      background-color: #1d4ed8;
+    }
+    /* Dark mode styles */
+    body.dark-theme {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #cbd5e1;
+    }
+    body.dark-theme .container {
+      background: #1e293b;
+      box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
+    }
+    body.dark-theme a {
+      color: #60a5fa;
+    }
+    body.dark-theme a:hover {
+      color: #3b82f6;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col items-center p-6" id="resume-content">
-
-  <div class="toggle-container" aria-label="Toggle dark/light theme" style="position: fixed; top: 1rem; right: 1rem; z-index: 9999; display: flex; align-items: center; gap: 0.75rem; font-weight: 600; color: #3498db; cursor: pointer; user-select: none;">
-    <span id="toggle-label">Dark Mode</span>
-    <div id="theme-toggle" class="toggle-switch" role="switch" aria-checked="false" tabindex="0" aria-label="Toggle Dark/Light Theme" style="width: 3rem; height: 1.5rem; background-color: #d1d5db; border-radius: 9999px; position: relative; transition: background-color 0.3s ease;">
-      <div id="toggle-circle" style="width: 1.25rem; height: 1.25rem; background-color: #3498db; border-radius: 9999px; position: absolute; top: 0.125rem; left: 0.125rem; transition: transform 0.3s ease;"></div>
-    </div>
-  </div>
-
-  <header class="max-w-xl w-full bg-white rounded-lg shadow-lg p-6 animate__animated animate__fadeInDown">
-    <div class="flex items-center space-x-6">
-      <img src="https://live.staticflickr.com/65535/54757796402_3143280c58_w.jpg" alt="Mayank Shukla" class="w-28 h-28 rounded-lg object-cover shadow-lg" />
-      <div>
-        <h1 class="text-3xl font-bold text-blue-700">Mayank Shukla</h1>
-        <p class="mt-2 text-lg">Full-Stack MarTech Developer | AI & Web Solutions Expert</p>
-        <div class="mt-1 flex space-x-4 text-sm text-blue-500">
-          <a href="https://linkedin.com/in/seomynk/" class="hover:underline">LinkedIn</a>
-          <a href="https://peerlist.io/shuklamayank247" class="hover:underline">Peerlist</a>
-          <a href="https://github.com/mynk717/" class="hover:underline">GitHub</a>
-          <a id="download-pdf-btn" href="#" class="hover:underline cursor-pointer">Download PDF Resume</a>
+<body>
+  <div class="container" id="resume-content">
+    <header class="header">
+      <img src="https://live.staticflickr.com/65535/54757796402_3143280c58_w.jpg" alt="Mayank Shukla" class="profile-pic" />
+      <div class="header-content">
+        <h1>Mayank Shukla</h1>
+        <p>Full-Stack MarTech Developer | AI & Web Solutions Expert</p>
+        <div class="links">
+          <a href="https://linkedin.com/in/seomynk/" target="_blank">LinkedIn</a>
+          <a href="https://peerlist.io/shuklamayank247" target="_blank">Peerlist</a>
+          <a href="https://github.com/mynk717/" target="_blank">GitHub</a>
         </div>
+
+        <button id="download-pdf-btn" type="button">Download PDF Resume</button>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main class="max-w-xl w-full mt-10 bg-white rounded-lg shadow-lg p-8 space-y-8 animate__animated animate__fadeInUp">
-    <section>
-      <h2 class="text-2xl font-semibold text-blue-700 mb-4">Professional Summary</h2>
-      <p>Full-Stack MarTech Developer with 7+ years of experience building AI-integrated web solutions and data-driven marketing campaigns. Skilled in React, Node.js, TypeScript and advanced databases (Neo4j, Qdrant, Mem0) for real-time personalization and automation. Proven track record of delivering scalable platforms and campaigns that achieved 150%+ organic traffic growth for 50+ clients.</p>
-    </section>
-    <section>
-      <h2 class="text-2xl font-semibold text-blue-700 mb-4">Technical Skills & Expertise</h2>
-      <ul class="list-disc list-inside space-y-2 text-gray-700">
-        <li>AI-powered Applications</li>
-        <li>Full Stack Development</li>
-        <li>Neo4j, Qdrant, Mem0</li>
-        <li>JavaScript / TypeScript</li>
-        <li>React.js, Node.js, Firebase</li>
-        <li>Vercel, Google Analytics & Ads</li>
-        <li>SEO & SEM</li>
-        <li>Social Media Marketing</li>
-        <li>Paid & Organic Campaigns</li>
-        <li>Headless WordPress</li>
-      </ul>
-    </section>
-    <section>
-      <h2 class="text-2xl font-semibold text-blue-700 mb-4">Featured Projects</h2>
-      <ul class="list-disc list-inside space-y-4 text-gray-700">
-        <li>
-          <div class="font-semibold">BizNexus Business Platform</div>
-          <div>Full-stack business networking platform with real-time messaging and directory, serving 300+ users monthly. Integrated Firebase for secure authentication and Neo4j for relationship analytics, driving 20% user engagement increase.</div>
-          <div class="mt-1 space-x-3">
-            <a href="https://github.com/mynk717/biznexus-firebase" class="text-blue-600 hover:underline">GitHub Repo</a>
-            <a href="https://biznexus.mktgdime.com/" class="text-blue-600 hover:underline">Live Demo</a>
-          </div>
-        </li>
-        <li>
-          <div class="font-semibold">BSR Films Production Website</div>
-          <div>Responsive website for film production portfolio, driving 30% increase in client bookings via SEO. Optimized with Tailwind CSS and Vercel for 99% Lighthouse performance score.</div>
-          <div class="mt-1 space-x-3">
-            <a href="https://github.com/mynk717/bsr-film-website" class="text-blue-600 hover:underline">GitHub Repo</a>
-            <a href="https://www.bsrfilms.com/" class="text-blue-600 hover:underline">Live Site</a>
-          </div>
-        </li>
-        <li>
-          <div class="font-semibold">Browser Bot Automation Tool</div>
-          <div>AI-driven automation tool with Qdrant and Mem0 for personalized scraping, adopted by 120+ non-technical users. Built with Node.js and Vercel, achieving 98% task success rate across 10K+ monthly runs.</div>
-          <div class="mt-1 space-x-3">
-            <a href="https://github.com/mynk717/BrowserBot" class="text-blue-600 hover:underline">GitHub Repo</a>
-            <a href="https://browser-bot.vercel.app/" class="text-blue-600 hover:underline">Try it Here</a>
-          </div>
-        </li>
-      </ul>
-    </section>
-    <section>
-      <h2 class="text-2xl font-semibold text-blue-700 mb-4">Professional Experience</h2>
-      <ul class="list-disc list-inside space-y-2 text-gray-700">
-        <li>
-          <div class="font-semibold">Digital Marketing Specialist (Freelance) – Marketing Dime (2022–Present)</div>
-          <div>Executed SEO and paid campaigns across Google/Meta, increasing organic traffic by 150% for 50+ clients, generating $200K revenue. Developed full-stack websites with AI automation, integrating Qdrant for personalized user flows. Mentored 2 junior marketers on SEO tools, improving team efficiency by 25%.</div>
-        </li>
-        <li>
-          <div class="font-semibold">Digital Marketing Executive – Wallfort (2021–2022)</div>
-          <div>Led SEO and social media campaigns for real estate, growing leads from 200 to 600 monthly ($100K revenue). Built data-driven content strategies, increasing click-through rates by 35%.</div>
-        </li>
-        <li>
-          <div class="font-semibold">Junior SEO Analyst – Black Book Investment (Apr 2021–Jun 2021)</div>
-          <div>Conducted SEO audits and keyword research, improving rankings for 10+ high-value terms. Enhanced organic visibility by 20% through on-page optimization.</div>
-        </li>
-        <li>
-          <div class="font-semibold">Digital Marketing Assistant – JGRF Technology (2018–2021)</div>
-          <div>Supported campaign creation and social media, boosting engagement by 15%. Developed foundational SEO skills, optimizing 50+ pages.</div>
-        </li>
-      </ul>
-    </section>
+    <main>
+      <section>
+        <h2>Professional Summary</h2>
+        <p>Full-Stack MarTech Developer with 7+ years of experience building AI-integrated web solutions and data-driven marketing campaigns. Skilled in React, Node.js, TypeScript, and advanced databases (Neo4j, Qdrant, Mem0) for real-time personalization and automation. Proven track record of delivering scalable platforms and campaigns that achieved 150%+ organic traffic growth for 50+ clients.</p>
+      </section>
 
+      <section>
+        <h2>Technical Skills & Expertise</h2>
+        <ul>
+          <li>AI-powered Applications</li>
+          <li>Full Stack Development</li>
+          <li>Neo4j, Qdrant, Mem0</li>
+          <li>JavaScript / TypeScript</li>
+          <li>React.js, Node.js, Firebase</li>
+          <li>Vercel, Google Analytics & Ads</li>
+          <li>SEO & SEM</li>
+          <li>Social Media Marketing</li>
+          <li>Paid & Organic Campaigns</li>
+          <li>Headless WordPress</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Featured Projects</h2>
+        <ul>
+          <li>
+            <strong>BizNexus Business Platform</strong>
+            <p>Full-stack business networking platform with real-time messaging and directory, serving 300+ users monthly. Integrated Firebase for secure authentication and Neo4j for relationship analytics, driving 20% user engagement increase.</p>
+            <a href="https://github.com/mynk717/biznexus-firebase" target="_blank">GitHub Repo</a> |
+            <a href="https://biznexus.mktgdime.com/" target="_blank">Live Demo</a>
+          </li>
+          <li>
+            <strong>BSR Films Production Website</strong>
+            <p>Responsive website for film production portfolio, driving 30% increase in client bookings via SEO. Optimized with Tailwind CSS and Vercel for 99% Lighthouse performance score.</p>
+            <a href="https://github.com/mynk717/bsr-film-website" target="_blank">GitHub Repo</a> |
+            <a href="https://www.bsrfilms.com/" target="_blank">Live Site</a>
+          </li>
+          <li>
+            <strong>Browser Bot Automation Tool</strong>
+            <p>AI-driven automation tool with Qdrant and Mem0 for personalized scraping, adopted by 120+ non-technical users. Built with Node.js and Vercel, achieving 98% task success rate across 10K+ monthly runs.</p>
+            <a href="https://github.com/mynk717/BrowserBot" target="_blank">GitHub Repo</a> |
+            <a href="https://browser-bot.vercel.app/" target="_blank">Try it Here</a>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Professional Experience</h2>
+        <ul>
+          <li>
+            <strong>Digital Marketing Specialist (Freelance) – Marketing Dime (2022–Present)</strong>
+            <p>Executed SEO and paid campaigns across Google/Meta, increasing organic traffic by 150% for 50+ clients, generating $200K revenue. Developed full-stack websites with AI automation, integrating Qdrant for personalized user flows. Mentored 2 junior marketers on SEO tools, improving team efficiency by 25%.</p>
+          </li>
+          <li>
+            <strong>Digital Marketing Executive – Wallfort (2021–2022)</strong>
+            <p>Led SEO and social media campaigns for real estate, growing leads from 200 to 600 monthly ($100K revenue). Built data-driven content strategies, increasing click-through rates by 35%.</p>
+          </li>
+          <li>
+            <strong>Junior SEO Analyst – Black Book Investment (Apr 2021–Jun 2021)</strong>
+            <p>Conducted SEO audits and keyword research, improving rankings for 10+ high-value terms. Enhanced organic visibility by 20% through on-page optimization.</p>
+          </li>
+          <li>
+            <strong>Digital Marketing Assistant – JGRF Technology (2018–2021)</strong>
+            <p>Supported campaign creation and social media, boosting engagement by 15%. Developed foundational SEO skills, optimizing 50+ pages.</p>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
   <script>
     // Dark mode toggle logic
     const toggleSwitch = document.getElementById('theme-toggle');
@@ -116,14 +191,8 @@
       const isDark = document.body.classList.contains('dark-theme');
       toggleSwitch.setAttribute('aria-checked', isDark);
       if (isDark) {
-        toggleCircle.style.transform = 'translateX(24px)';
-        toggleCircle.style.backgroundColor = '#d1d5db';
-        toggleSwitch.style.backgroundColor = '#3e64ff';
         toggleLabel.textContent = 'Light Mode';
       } else {
-        toggleCircle.style.transform = 'translateX(0)';
-        toggleCircle.style.backgroundColor = '#3498db';
-        toggleSwitch.style.backgroundColor = '#d1d5db';
         toggleLabel.textContent = 'Dark Mode';
       }
     });
@@ -148,7 +217,7 @@
       };
       html2pdf().set(opt).from(element).save();
     });
-
   </script>
+
 </body>
 </html>
