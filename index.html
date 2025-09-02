@@ -1,448 +1,154 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mayank Shukla - Full-Stack MarTech Developer | Resume</title>
-
-<!-- Primary Meta Tags -->
-<meta name="title" content="Mayank Shukla - Full-Stack MarTech Developer">
-<meta name="description" content="Full-Stack MarTech Developer with 7+ years experience in AI-integrated web solutions. Expert in React, Node.js, TypeScript, and advanced databases (Neo4j, Qdrant). Available for remote opportunities.">
-<meta name="keywords" content="Full-Stack Developer, MarTech, AI Integration, React, Node.js, TypeScript, Digital Marketing, SEO, Remote Developer">
-<meta name="author" content="Mayank Shukla">
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="profile">
-<meta property="og:url" content="https://mynk717.github.io/">
-<meta property="og:title" content="Mayank Shukla - Full-Stack MarTech Developer">
-<meta property="og:description" content="Full-Stack MarTech Developer with 7+ years experience building AI-integrated web solutions. Expert in React, Node.js, TypeScript, and advanced databases. Available for remote opportunities.">
-<meta property="og:image" content="https://live.staticflickr.com/65535/54757796402_3143280c58_w.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:site_name" content="Mayank Shukla - Portfolio">
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://mynk717.github.io/">
-<meta property="twitter:title" content="Mayank Shukla - Full-Stack MarTech Developer">
-<meta property="twitter:description" content="Full-Stack MarTech Developer with 7+ years experience in AI-integrated web solutions. Expert in React, Node.js, TypeScript. Available for remote work.">
-<meta property="twitter:image" content="https://live.staticflickr.com/65535/54757796402_3143280c58_w.jpg">
-
-<!-- LinkedIn specific -->
-<meta property="article:author" content="Mayank Shukla">
-<meta property="profile:first_name" content="Mayank">
-<meta property="profile:last_name" content="Shukla">
-<meta property="profile:username" content="seomynk">
-
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-  body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f7f8;
-    color: #292d32;
-    transition: background-color 0.5s ease, color 0.5s ease;
-  }
-  .container {
-    max-width: 900px;
-    margin: 36px auto;
-    background-color: rgba(255,255,255,0.9);
-    box-shadow: 0 12px 32px rgba(60,90,144,0.13);
-    border-radius: 24px;
-    padding: 36px 38px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-  .header {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    border-bottom: 2px solid #d3dce6;
-    padding-bottom: 24px;
-  }
-  .profile-pic {
-    width: 120px;
-    height: 120px;
-    border-radius: 18px;
-    object-fit: cover;
-    box-shadow: 0 4px 18px rgba(52,152,219,0.18);
-    border: 2px solid #3498db;
-    transition: transform 0.4s;
-  }
-  .profile-pic:hover {
-    transform: scale(1.08);
-  }
-  .title-details {
-    flex: 1;
-  }
-  .main-title {
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: #2167a7;
-    margin-bottom: 4px;
-    letter-spacing: 0.02em;
-  }
-  .main-subtitle {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: #444c57;
-    margin-bottom: 10px;
-  }
-  .links-row a {
-    display: inline-block;
-    margin-right: 18px;
-    color: #3498db;
-    font-weight: 500;
-    text-decoration: none;
-    background: rgba(52,152,219, 0.07);
-    padding: 6px 14px;
-    border-radius: 14px;
-    transition: background 0.4s;
-  }
-  .links-row a:hover {
-    background: #d7eafd;
-  }
-  .contact-row {
-    margin-top: 8px;
-    font-size: 0.99rem;
-    color: #61667b;
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  section {
-    margin-top: 8px;
-  }
-  .section-title {
-    font-size: 1.45rem;
-    font-weight: 600;
-    margin-bottom: 18px;
-    letter-spacing: .02em;
-    color: #2d3748;
-    border-left: 6px solid #e1e7f0;
-    padding-left: 16px;
-    background: linear-gradient(90deg, rgba(52,152,219,0.08) 0, rgba(255,255,255,0.0) 100%);
-    border-radius: 0 20px 20px 0;
-    box-shadow: 0 2px 20px rgba(52,152,219,0.07);
-  }
-  .glass-card {
-    background: rgba(255,255,255,0.84);
-    border-radius: 16px;
-    box-shadow: 0 8px 26px rgba(31,97,207,0.09);
-    padding: 18px 21px;
-    margin-bottom: 22px;
-    transition: box-shadow 0.3s;
-  }
-  .glass-card:hover {
-    box-shadow: 0 18px 36px rgba(31,97,207,0.17);
-  }
-  .chips span {
-    background: linear-gradient(95deg, #eaf6fe 0%, #f3eeff 100%);
-    color: #436084;
-    font-size: 0.98rem;
-    font-weight: 500;
-    border-radius: 14px;
-    display: inline-block;
-    margin: 4px 6px 4px 0;
-    padding: 7px 14px;
-    box-shadow: 0 2px 8px rgba(52,152,219,0.07);
-    transition: background 0.24s, color 0.24s;
-  }
-  .chips span:hover {
-    background: #daebfa;
-    color: #1769ba;
-  }
-  ul { padding-left: 16px; }
-  ul li { margin-bottom: 6px; }
-  .project-title {
-    font-size: 1.11rem;
-    font-weight: 600;
-    color: #1653af;
-  }
-  .toggle-container {
-    position: fixed;
-    top: 24px;
-    right: 24px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 600;
-    color: #3498db;
-    cursor: pointer;
-    user-select: none;
-    z-index: 9999;
-  }
-  .toggle-switch {
-    width: 48px;
-    height: 24px;
-    background-color: #d1d5db;
-    border-radius: 12px;
-    position: relative;
-    transition: background-color 0.3s ease;
-  }
-  .toggle-switch::after {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 20px;
-    height: 20px;
-    background-color: #3498db;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-  }
-  .toggle-switch.active {
-    background-color: #3e64ff;
-  }
-  .toggle-switch.active::after {
-    transform: translateX(24px);
-    background-color: #d1d5db;
-  }
-  body.dark-theme {
-    background-color: #121214;
-    color: #cbd5e1;
-  }
-  body.dark-theme .container {
-    background-color: #1e1e2f;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.75);
-    color: #cbd5e1;
-  }
-  body.dark-theme .header {
-    border-bottom: 2px solid #394659;
-  }
-  body.dark-theme .profile-pic {
-    box-shadow: 0 4px 18px rgba(52,152,219,0.6);
-    border: 2px solid #3e64ff;
-  }
-  body.dark-theme .main-title {
-    color: #3e64ff;
-  }
-  body.dark-theme .main-subtitle {
-    color: #9ca3af;
-  }
-  body.dark-theme .links-row a {
-    color: #3e64ff;
-    background: rgba(62,100,255, 0.07);
-  }
-  body.dark-theme .links-row a:hover {
-    background: #516fff;
-    color: #fff;
-  }
-  body.dark-theme .contact-row {
-    color: #a1a1aa;
-  }
-  body.dark-theme .section-title {
-    color: #3e64ff;
-    border-left: 6px solid #394659;
-    background: none;
-    box-shadow: none;
-  }
-  body.dark-theme .glass-card {
-    background-color: #292a3c;
-    box-shadow: 0 8px 26px rgba(31,97,207,0.3);
-    color: #cbd5e1;
-  }
-  body.dark-theme .chips span {
-    background-color: #374151;
-    color: #cbd5e1;
-    box-shadow: 0 2px 8px rgba(31,97,207,0.2);
-  }
-  body.dark-theme .chips span:hover {
-    background-color: #3e64ff;
-    color: #fff;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mayank Shukla - Full-Stack MarTech Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
 </head>
-<body>
-  <div class="toggle-container" aria-label="Toggle dark/light theme">
-    <span>Dark Mode</span>
-    <div id="theme-toggle" class="toggle-switch" role="switch" aria-checked="false" tabindex="0" aria-label="Toggle Dark/Light Theme"></div>
+<body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col items-center p-6" id="resume-content">
+
+  <div class="toggle-container" aria-label="Toggle dark/light theme" style="position: fixed; top: 1rem; right: 1rem; z-index: 9999; display: flex; align-items: center; gap: 0.75rem; font-weight: 600; color: #3498db; cursor: pointer; user-select: none;">
+    <span id="toggle-label">Dark Mode</span>
+    <div id="theme-toggle" class="toggle-switch" role="switch" aria-checked="false" tabindex="0" aria-label="Toggle Dark/Light Theme" style="width: 3rem; height: 1.5rem; background-color: #d1d5db; border-radius: 9999px; position: relative; transition: background-color 0.3s ease;">
+      <div id="toggle-circle" style="width: 1.25rem; height: 1.25rem; background-color: #3498db; border-radius: 9999px; position: absolute; top: 0.125rem; left: 0.125rem; transition: transform 0.3s ease;"></div>
+    </div>
   </div>
-  <div class="container">
-    <div class="header">
-      <img src="https://live.staticflickr.com/65535/54757796402_3143280c58_w.jpg" alt="Mayank Shukla" class="profile-pic" />
-      <div class="title-details">
-        <div class="main-title">Mayank Shukla</div>
-        <div class="main-subtitle">Full-Stack MarTech Developer | AI & Web Solutions Expert</div>
-        <div class="contact-row">
-          <span>📧 shukla.mayank247@gmail.com</span>
-          <span>📱 +91 8349091717</span>
-          <span>📍 Raipur, Chhattisgarh, India</span>
-        </div>
-        <div class="links-row">
-          <a href="https://linkedin.com/in/seomynk/" target="_blank">LinkedIn</a>
-          <a href="https://peerlist.io/shuklamayank247" target="_blank">Peerlist</a>
-          <a href="https://github.com/mynk717" target="_blank">GitHub</a>
-          <a href="https://raw.githubusercontent.com/mynk717/mynk717.github.io/main/resume.pdf
-" target="_blank">Download PDF Resume</a>
+
+  <header class="max-w-xl w-full bg-white rounded-lg shadow-lg p-6 animate__animated animate__fadeInDown">
+    <div class="flex items-center space-x-6">
+      <img src="https://live.staticflickr.com/65535/54757796402_3143280c58_w.jpg" alt="Mayank Shukla" class="w-28 h-28 rounded-lg object-cover shadow-lg" />
+      <div>
+        <h1 class="text-3xl font-bold text-blue-700">Mayank Shukla</h1>
+        <p class="mt-2 text-lg">Full-Stack MarTech Developer | AI & Web Solutions Expert</p>
+        <div class="mt-1 flex space-x-4 text-sm text-blue-500">
+          <a href="https://linkedin.com/in/seomynk/" class="hover:underline">LinkedIn</a>
+          <a href="https://peerlist.io/shuklamayank247" class="hover:underline">Peerlist</a>
+          <a href="https://github.com/mynk717/" class="hover:underline">GitHub</a>
+          <a id="download-pdf-btn" href="#" class="hover:underline cursor-pointer">Download PDF Resume</a>
         </div>
       </div>
     </div>
+  </header>
+
+  <main class="max-w-xl w-full mt-10 bg-white rounded-lg shadow-lg p-8 space-y-8 animate__animated animate__fadeInUp">
     <section>
-      <div class="section-title">Professional Summary</div>
-      <div class="glass-card">
-        Full-Stack MarTech Developer with 7+ years of experience building AI-integrated web solutions and data-driven marketing campaigns. Expert in full-stack development (React, Node.js, TypeScript) and advanced databases (Neo4j, Qdrant, Mem0) for real-time personalization and automation. Delivered scalable platforms and campaigns driving 150%+ organic traffic growth for 50+ clients.
-      </div>
+      <h2 class="text-2xl font-semibold text-blue-700 mb-4">Professional Summary</h2>
+      <p>Full-Stack MarTech Developer with 7+ years of experience building AI-integrated web solutions and data-driven marketing campaigns. Skilled in React, Node.js, TypeScript and advanced databases (Neo4j, Qdrant, Mem0) for real-time personalization and automation. Proven track record of delivering scalable platforms and campaigns that achieved 150%+ organic traffic growth for 50+ clients.</p>
     </section>
     <section>
-      <div class="section-title">Continuous Learning</div>
-      <div class="glass-card">
-        <ul>
-          <li>Self-taught React and TypeScript via freeCodeCamp, applied in 3 live projects (2022-2023).</li>
-          <li>Mastered Neo4j for graph-based analytics through Cypher Fundamentals course, implemented in client recommendation system (2024).</li>
-          <li>Learned Qdrant and Mem0 for vector search and AI memory via official docs, integrated into BrowserBot for enhanced personalization (2025).</li>
-        </ul>
-      </div>
+      <h2 class="text-2xl font-semibold text-blue-700 mb-4">Technical Skills & Expertise</h2>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>AI-powered Applications</li>
+        <li>Full Stack Development</li>
+        <li>Neo4j, Qdrant, Mem0</li>
+        <li>JavaScript / TypeScript</li>
+        <li>React.js, Node.js, Firebase</li>
+        <li>Vercel, Google Analytics & Ads</li>
+        <li>SEO & SEM</li>
+        <li>Social Media Marketing</li>
+        <li>Paid & Organic Campaigns</li>
+        <li>Headless WordPress</li>
+      </ul>
     </section>
     <section>
-      <div class="section-title">Technical Achievements</div>
-      <div class="glass-card">
-        <ul>
-          <li>Integrated OpenAI GPT-4o API for intelligent web scraping and dynamic automation in BrowserBot, reducing manual processes by 70% for 100+ users.</li>
-          <li>Implemented serverless architecture on Vercel and Browserless.io, handling 1,000+ daily automation tasks with 99.9% uptime.</li>
-          <li>Developed real-time Firebase backend for BizNexus, supporting 200+ concurrent users and 500K+ monthly API calls.</li>
-          <li>Built graph-based recommendation system using Neo4j, improving client engagement by 40% for a MarTech platform.</li>
-          <li>Integrated Qdrant vector search and Mem0 for AI-driven personalization in BrowserBot, boosting user retention by 25%.</li>
-          <li>Built a headless WordPress BizNexus site, boosting client inquiries and showcasing real business impact through testimonials.</li>
-        </ul>
-      </div>
+      <h2 class="text-2xl font-semibold text-blue-700 mb-4">Featured Projects</h2>
+      <ul class="list-disc list-inside space-y-4 text-gray-700">
+        <li>
+          <div class="font-semibold">BizNexus Business Platform</div>
+          <div>Full-stack business networking platform with real-time messaging and directory, serving 300+ users monthly. Integrated Firebase for secure authentication and Neo4j for relationship analytics, driving 20% user engagement increase.</div>
+          <div class="mt-1 space-x-3">
+            <a href="https://github.com/mynk717/biznexus-firebase" class="text-blue-600 hover:underline">GitHub Repo</a>
+            <a href="https://biznexus.mktgdime.com/" class="text-blue-600 hover:underline">Live Demo</a>
+          </div>
+        </li>
+        <li>
+          <div class="font-semibold">BSR Films Production Website</div>
+          <div>Responsive website for film production portfolio, driving 30% increase in client bookings via SEO. Optimized with Tailwind CSS and Vercel for 99% Lighthouse performance score.</div>
+          <div class="mt-1 space-x-3">
+            <a href="https://github.com/mynk717/bsr-film-website" class="text-blue-600 hover:underline">GitHub Repo</a>
+            <a href="https://www.bsrfilms.com/" class="text-blue-600 hover:underline">Live Site</a>
+          </div>
+        </li>
+        <li>
+          <div class="font-semibold">Browser Bot Automation Tool</div>
+          <div>AI-driven automation tool with Qdrant and Mem0 for personalized scraping, adopted by 120+ non-technical users. Built with Node.js and Vercel, achieving 98% task success rate across 10K+ monthly runs.</div>
+          <div class="mt-1 space-x-3">
+            <a href="https://github.com/mynk717/BrowserBot" class="text-blue-600 hover:underline">GitHub Repo</a>
+            <a href="https://browser-bot.vercel.app/" class="text-blue-600 hover:underline">Try it Here</a>
+          </div>
+        </li>
+      </ul>
     </section>
     <section>
-      <div class="section-title">Technical Skills & Expertise</div>
-      <div class="glass-card chips">
-        <span>AI-powered Applications</span>
-        <span>Full Stack Development</span>
-        <span>Neo4j</span>
-        <span>Qdrant</span>
-        <span>Mem0</span>
-        <span>JavaScript / TypeScript</span>
-        <span>React.js</span>
-        <span>Node.js</span>
-        <span>Firebase</span>
-        <span>Vercel</span>
-        <span>Google Analytics & Ads</span>
-        <span>SEO & SEM</span>
-        <span>Social Media Marketing</span>
-        <span>Paid & Organic Campaigns</span>
-      </div>
+      <h2 class="text-2xl font-semibold text-blue-700 mb-4">Professional Experience</h2>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>
+          <div class="font-semibold">Digital Marketing Specialist (Freelance) – Marketing Dime (2022–Present)</div>
+          <div>Executed SEO and paid campaigns across Google/Meta, increasing organic traffic by 150% for 50+ clients, generating $200K revenue. Developed full-stack websites with AI automation, integrating Qdrant for personalized user flows. Mentored 2 junior marketers on SEO tools, improving team efficiency by 25%.</div>
+        </li>
+        <li>
+          <div class="font-semibold">Digital Marketing Executive – Wallfort (2021–2022)</div>
+          <div>Led SEO and social media campaigns for real estate, growing leads from 200 to 600 monthly ($100K revenue). Built data-driven content strategies, increasing click-through rates by 35%.</div>
+        </li>
+        <li>
+          <div class="font-semibold">Junior SEO Analyst – Black Book Investment (Apr 2021–Jun 2021)</div>
+          <div>Conducted SEO audits and keyword research, improving rankings for 10+ high-value terms. Enhanced organic visibility by 20% through on-page optimization.</div>
+        </li>
+        <li>
+          <div class="font-semibold">Digital Marketing Assistant – JGRF Technology (2018–2021)</div>
+          <div>Supported campaign creation and social media, boosting engagement by 15%. Developed foundational SEO skills, optimizing 50+ pages.</div>
+        </li>
+      </ul>
     </section>
-    <section>
-      <div class="section-title">Featured Projects</div>
-      <div class="glass-card">
-        <div class="project-title">BizNexus Business Platform</div>
-        <ul>
-          <li>Full-stack networking platform with real-time messaging and directory, serving 300+ users monthly.</li>
-          <li>Integrated Firebase for secure authentication and Neo4j for relationship analytics, driving 20% user engagement increase.</li>
-          <li><a href="https://github.com/mynk717/biznexus-firebase" target="_blank">GitHub Repo</a></li>
-          <li><a href="https://biznexus.mktgdime.com/" target="_blank">Live Demo</a></li>
-        </ul>
-      </div>
-      <div class="glass-card">
-        <div class="project-title">BSR Films Production Website</div>
-        <ul>
-          <li>Responsive website for film production portfolio, driving 30% increase in client bookings via SEO.</li>
-          <li>Optimized with Tailwind CSS and Vercel for 99% Lighthouse performance score.</li>
-          <li><a href="https://github.com/mynk717/bsr-film-website" target="_blank">GitHub Repo</a></li>
-          <li><a href="https://www.bsrfilms.com/" target="_blank">Live Site</a></li>
-        </ul>
-      </div>
-      <div class="glass-card">
-        <div class="project-title">Browser Bot Automation Tool</div>
-        <ul>
-          <li>AI-driven automation tool with Qdrant and Mem0 for personalized scraping, adopted by 120+ non-technical users.</li>
-          <li>Built with Node.js and Vercel, achieving 98% task success rate across 10K+ monthly runs.</li>
-          <li><a href="https://github.com/mynk717/BrowserBot" target="_blank">GitHub Repo</a></li>
-          <li><a href="https://browser-bot.vercel.app/" target="_blank">Try it Here</a></li>
-        </ul>
-      </div>
-    </section>
-    <section>
-      <div class="section-title">Professional Experience</div>
-      <div class="glass-card">
-        <div class="project-title">Digital Marketing Specialist (Freelance) – Marketing Dime <span style="font-weight:400;">(2022–Present)</span></div>
-        <ul>
-          <li>Executed SEO and paid campaigns across Google/Meta, increasing organic traffic by 150% for 50+ clients, generating $200K revenue.</li>
-          <li>Developed full-stack websites with AI automation, integrating Qdrant for personalized user flows.</li>
-          <li>Mentored 2 junior marketers on SEO tools, improving team efficiency by 25%.</li>
-        </ul>
-      </div>
-      <div class="glass-card">
-        <div class="project-title">Digital Marketing Executive – Wallfort <span style="font-weight:400;">(2021–2022)</span></div>
-        <ul>
-          <li>Led SEO and social media campaigns for real estate, growing leads from 200 to 600 monthly ($100K revenue).</li>
-          <li>Built data-driven content strategies, increasing click-through rates by 35%.</li>
-        </ul>
-      </div>
-      <div class="glass-card">
-        <div class="project-title">Junior SEO Analyst – Black Book Investment <span style="font-weight:400;">(Apr 2021–Jun 2021)</span></div>
-        <ul>
-          <li>Conducted SEO audits and keyword research, improving rankings for 10+ high-value terms.</li>
-          <li>Enhanced organic visibility by 20% through on-page optimization.</li>
-        </ul>
-      </div>
-      <div class="glass-card">
-        <div class="project-title">Digital Marketing Assistant – JGRF Technology <span style="font-weight:400;">(2018–2021)</span></div>
-        <ul>
-          <li>Supported campaign creation and social media, boosting engagement by 15%.</li>
-          <li>Developed foundational SEO skills, optimizing 50+ pages.</li>
-        </ul>
-      </div>
-    </section>
-    <section>
-      <div class="section-title">Education</div>
-      <div class="glass-card">
-        <strong>Bachelor of Technology – Mechanical Engineering</strong><br />
-        Shree Shankaracharya Institute of Management & Technology (SSIPMT), 2014<br />
-        Relevant: Advanced Digital Marketing, Project Management, Data Analysis
-      </div>
-    </section>
-    <section>
-      <div class="section-title">Certifications</div>
-      <div class="glass-card">
-        <ul>
-          <li>Local SEO Exam – Semrush Academy (2023)</li>
-          <li>Google Analytics for Beginners – Analytics Academy (2022)</li>
-          <li>AI for Marketing – Coursera (2024)</li>
-        </ul>
-      </div>
-    </section>
-    <section>
-      <div class="section-title">Languages</div>
-      <div class="glass-card">
-        English (Professional Working Proficiency), Hindi (Native)
-      </div>
-    </section>
-    <section>
-      <div class="section-title">Availability</div>
-      <div class="glass-card">
-        Open to remote part-time and project-based opportunities. Flexible hours and immediate start.
-      </div>
-    </section>
-  </div>
+
   <script>
-    document.body.classList.remove('dark-theme');
+    // Dark mode toggle logic
     const toggleSwitch = document.getElementById('theme-toggle');
+    const toggleLabel = document.getElementById('toggle-label');
+    const toggleCircle = document.getElementById('toggle-circle');
+
     toggleSwitch.addEventListener('click', () => {
       document.body.classList.toggle('dark-theme');
       const isDark = document.body.classList.contains('dark-theme');
       toggleSwitch.setAttribute('aria-checked', isDark);
       if (isDark) {
-        toggleSwitch.classList.add('active');
-        toggleSwitch.previousElementSibling.textContent = 'Light Mode';
+        toggleCircle.style.transform = 'translateX(24px)';
+        toggleCircle.style.backgroundColor = '#d1d5db';
+        toggleSwitch.style.backgroundColor = '#3e64ff';
+        toggleLabel.textContent = 'Light Mode';
       } else {
-        toggleSwitch.classList.remove('active');
-        toggleSwitch.previousElementSibling.textContent = 'Dark Mode';
+        toggleCircle.style.transform = 'translateX(0)';
+        toggleCircle.style.backgroundColor = '#3498db';
+        toggleSwitch.style.backgroundColor = '#d1d5db';
+        toggleLabel.textContent = 'Dark Mode';
       }
     });
+
     toggleSwitch.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         toggleSwitch.click();
       }
     });
-    toggleSwitch.previousElementSibling.textContent = 'Dark Mode';
+
+    // PDF download logic
+    document.getElementById('download-pdf-btn').addEventListener('click', function (event) {
+      event.preventDefault();
+      var element = document.getElementById('resume-content');
+      var opt = {
+        margin: 0.5,
+        filename: 'Mayank_Shukla_Resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    });
+
   </script>
 </body>
 </html>
