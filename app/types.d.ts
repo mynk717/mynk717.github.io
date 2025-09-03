@@ -1,4 +1,4 @@
-declare module 'paper/dist/paper-full' {
-  const content: any;
-  export default content;
+declare module "*.json" {
+  const value: object;
+  export default value;
 }
