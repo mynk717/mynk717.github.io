@@ -1,26 +1,254 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+  color: #2c3e50;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Container styles */
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem 3rem;
+  overflow-wrap: break-word;
+  position: relative;
+  z-index: 1;
+}
+
+/* Profile picture */
+.profile-pic {
+  width: 112px !important;
+  height: 112px !important;
+  border-radius: 1rem;
+  object-fit: cover;
+  box-shadow: 0 12px 36px rgba(37, 99, 235, 0.3);
+  transition: transform 0.3s ease;
+}
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+/* Header */
+.header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1.5rem;
+}
+
+.header-content {
+  flex-grow: 1;
+}
+
+/* Links */
+.links {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 1.5rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+#download-pdf-btn {
+  margin-top: 1.25rem;
+  background-color: #2563eb;
+  color: white;
+  padding: 0.6rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+#download-pdf-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Section titles */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 1rem;
+}
+
+/* Section text */
+.section-text {
+  color: #374151;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Lists */
+.section-list {
+  color: #4b5563;
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Skill chip */
+.skill-chip {
+  display: inline-block;
+  background: linear-gradient(90deg, #e0f2fe 0%, #f3e8ff 100%);
+  color: #1e40af;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  margin: 0.25rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: default;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.skill-chip:hover {
+  transform: scale(1.05);
+  background: #bfdbfe;
+}
+
+/* Project card */
+.project-card {
+  background: #f9fafb;
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Section divider */
+.section-divider {
+  border-top: 1px solid #e5e7eb;
+  margin: 3rem 0;
+}
+
+/* Toggle container */
+.toggle-container {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 50;
+}
+
+/* Toggle label */
+.toggle-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #2563eb;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Toggle switch */
+.toggle-switch {
+  width: 3rem;
+  height: 1.5rem;
+  background-color: #d1d5db;
+  border-radius: 9999px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-switch.active {
+  background-color: #1e40af;
+}
+
+.toggle-switch > span {
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: #2563eb;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.toggle-switch.active > span {
+  transform: translateX(1.5rem);
+  background-color: #f9fafb;
+}
+
+/* Dark theme overrides */
+body.dark-theme {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #cbd5e1;
+}
+
+body.dark-theme .container {
+  background: #1e293b;
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme a {
+  color: #60a5fa;
+}
+
+body.dark-theme a:hover {
+  color: #3b82f6;
+}
+
+body.dark-theme h1,
+body.dark-theme h2 {
+  color: #60a5fa;
+}
+
+body.dark-theme .section-title {
+  color: #60a5fa;
+}
+
+body.dark-theme .section-text,
+body.dark-theme .section-list {
+  color: #d1d5db;
+}
+
+body.dark-theme .section-divider {
+  border-color: #374151;
+}
+
+body.dark-theme .project-card {
+  background: #2d3748;
+}
+
+body.dark-theme .skill-chip {
+  background: #374151;
+  color: #e0f2fe;
+}
+
+body.dark-theme .skill-chip:hover {
+  background: #60a5fa;
+}
+
+/* Paper.js canvas sits behind content */
+canvas {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: -999;
+  pointer-events: none;
 }
