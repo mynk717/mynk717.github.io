@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   images: {
+    unoptimized: true,
     domains: ["live.staticflickr.com"],
   },
+  basePath: '',
+  trailingSlash: true,
 };
 
 export default nextConfig;
