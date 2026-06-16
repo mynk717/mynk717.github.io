@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayank Shukla - Full-Stack Developer & MarTech Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #e0e5ec;
+            --shadow-light: #ffffff;
+            --shadow-dark: #a3b1c6;
+            --text-primary: #2c3e50;
+            --text-secondary: #546e7a;
+            --accent: #667eea;
+            --accent-light: #764ba2;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #e0e5ec 0%, #d4dae5 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        /* Neomorphism Card Styles */
+        .neo-card {
+            background: var(--bg-primary);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow:
+                12px 12px 24px var(--shadow-dark),
+                -12px -12px 24px var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .neo-card:hover {
+            box-shadow:
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+        }
+
+        .neo-card-inset {
+            background: var(--bg-primary);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow:
+                inset 6px 6px 12px var(--shadow-dark),
+                inset -6px -6px 12px var(--shadow-light);
+            margin: 15px 0;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header .tagline {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .neo-btn {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 12px 24px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            box-shadow:
+                6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .neo-btn:hover {
+            box-shadow:
+                inset 4px 4px 8px var(--shadow-dark),
+                inset -4px -4px 8px var(--shadow-light);
+            color: var(--accent);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 2px;
+        }
+
+        /* Summary Section */
+        .summary-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: var(--bg-primary);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow:
+                inset 4px 4px 8px var(--shadow-dark),
+                inset -4px -4px 8px var(--shadow-light);
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .skill-category p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Experience Timeline */
+        .experience-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(163, 177, 198, 0.2);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .experience-company {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .experience-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 12px;
+        }
+
+        .experience-item li {
+            padding-left: 25px;
+            margin-bottom: 8px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .experience-item li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: var(--bg-primary);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow:
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                12px 12px 24px var(--shadow-dark),
+                -12px -12px 24px var(--shadow-light);
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Highlights */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 15px;
+            padding: 25px;
+            color: white;
+            box-shadow:
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: scale(1.05);
+        }
+
+        .highlight-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .highlight-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Education & Certifications */
+        .info-block {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 15px;
+            box-shadow:
+                inset 4px 4px 8px var(--shadow-dark),
+                inset -4px -4px 8px var(--shadow-light);
+        }
+
+        .info-block h3 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .info-block p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 20px;
+            color: white;
+            box-shadow:
+                12px 12px 24px var(--shadow-dark),
+                -12px -12px 24px var(--shadow-light);
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--accent);
+            padding: 15px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header .tagline {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .neo-btn {
+                text-align: center;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .neo-card,
+            .project-card,
+            .highlight-card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+
+            .cta-section {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header neo-card">
+            <h1>Mayank Shukla</h1>
+            <p class="tagline">Full-Stack Developer | MarTech & SEO Engineer | SaaS Builder</p>
+            <div class="contact-links">
+                <a href="mailto:shukla.mayank247@gmail.com" class="neo-btn">📧 Email</a>
+                <a href="tel:+918349091717" class="neo-btn">📱 +91-834-909-1717</a>
+                <a href="https://linkedin.com/in/seomynk" class="neo-btn" target="_blank">LinkedIn</a>
+                <a href="https://github.com/mynk717" class="neo-btn" target="_blank">GitHub</a>
+                <a href="https://mynk717.github.io" class="neo-btn" target="_blank">Portfolio</a>
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section class="neo-card">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="neo-card-inset">
+                <p class="summary-text">
+                    Full-Stack Developer and MarTech Engineer with <strong>7+ years</strong> of hands-on experience building AI-integrated SaaS products, SEO-optimized web applications, and marketing automation pipelines. Deep expertise in Next.js, TypeScript, React, and Google ecosystem APIs (GSC, GA4, Google Ads, Merchant Center). Built production applications including Solar Arrow (CRM SaaS), PingWing (uptime monitoring), and MCP Server Hub (AI-powered SEO research tools). Currently managing SEO for shreeshivam.com and delivering technical SEO implementations through terminal-based workflows.
+                </p>
+            </div>
+        </section>
+
+        <!-- Key Highlights -->
+        <section class="neo-card">
+            <h2 class="section-title">Key Strengths</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-title">Full-Stack Product Development</div>
+                    <div class="highlight-text">End-to-end ownership of SaaS applications from architecture to production deployment. Built Solar Arrow, PingWing, and MCP Server Hub (open-source SEO tools) independently.</div>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-title">CLI & Automation Expertise</div>
+                    <div class="highlight-text">Proficient in terminal-based workflows and API-first integrations. Manage Google Search Console, GA4, Google Ads, and Shopify through CLI/API with bash scripting and automation.</div>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-title">Technical SEO & Development</div>
+                    <div class="highlight-text">Unique combination of technical SEO knowledge and full-stack engineering. Specialized in schema markup, Core Web Vitals optimization, and SEO-focused tooling.</div>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-title">AI Integration Experience</div>
+                    <div class="highlight-text">Hands-on experience integrating AI APIs (Claude, Gemini) into production applications. Built MCP Server for AI-powered SEO research and content generation workflows.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Skills -->
+        <section class="neo-card">
+            <h2 class="section-title">Core Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <p>Next.js 14+, React 18, TypeScript, Tailwind CSS, PWA</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend & APIs</h3>
+                    <p>Node.js, REST APIs, Telegram Bot API, Sanity CMS</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <p>Google Sheets API, Neo4j, Qdrant (vector), Mem0, Notion API</p>
+                </div>
+                <div class="skill-category">
+                    <h3>SEO / GEO / AEO</h3>
+                    <p>Technical SEO, Schema Markup, Core Web Vitals, AIO/GEO/AEO optimization</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Google Ecosystem</h3>
+                    <p>GSC, GA4, Google Ads, Google Merchant Center—all via terminal/CLI</p>
+                </div>
+                <div class="skill-category">
+                    <h3>AI & Automation</h3>
+                    <p>Gemini API, Claude API, Perplexity API, content generation pipelines</p>
+                </div>
+                <div class="skill-category">
+                    <h3>DevOps & Cloud</h3>
+                    <p>Vercel, Google Cloud Platform, GitHub Actions, CI/CD</p>
+                </div>
+                <div class="skill-category">
+                    <h3>E-commerce</h3>
+                    <p>Shopify (theme dev, Liquid, SEO), custom storefronts</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="neo-card">
+            <h2 class="section-title">Professional Experience</h2>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Full-Stack MarTech Developer & SEO Consultant</div>
+                        <div class="experience-company">Freelance / Marketing Dime</div>
+                    </div>
+                    <div class="experience-date">2022 – Present | Remote</div>
+                </div>
+                <ul>
+                    <li>Built <strong>Marketing Dime</strong> platform (mktgdime.com) using Next.js 14, Sanity CMS, and TypeScript for SEO content management and documentation</li>
+                    <li>Developed <strong>MCP Server Hub</strong> - open-source AI-powered SEO research and audit tools using Claude API, published on GitHub (github.com/mynk717/mktdm-mcp-hub)</li>
+                    <li>Created <strong>Solar Arrow</strong> (sa.mktgdime.com) - CRM SaaS for solar panel sales with Google Sheets API and Telegram Bot integration</li>
+                    <li>Built <strong>PingWing</strong> (github.com/mynk717/wa-mktgdime) - WhatsApp CRM application for managing customer communications and business workflows</li>
+                    <li>Managing ongoing SEO for shreeshivam.com (Shopify), publishing blogs and handling GSC, GA4, and Google Merchant Center via terminal</li>
+                </ul>
+            </div>
+
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Digital Marketing Specialist</div>
+                        <div class="experience-company">Wallfort (Real Estate)</div>
+                    </div>
+                    <div class="experience-date">2021 – 2022 | Raipur</div>
+                </div>
+                <ul>
+                    <li>Led SEO and social media strategy for a real estate firm</li>
+                    <li>Implemented technical SEO improvements, content strategies, and social media campaigns</li>
+                    <li>Managed Google My Business, analytics tracking, and lead generation campaigns</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">SEO Analyst</div>
+                        <div class="experience-company">Black Book Investment / JGRF Technology</div>
+                    </div>
+                    <div class="experience-date">2018 – 2021</div>
+                </div>
+                <ul>
+                    <li>Conducted technical SEO audits, keyword research, and on-page optimization</li>
+                    <li>Managed content optimization and analytics tracking for multiple client websites</li>
+                    <li>Developed foundational skills in SEO tools, Google Analytics, and campaign management</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section class="neo-card">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">Marketing Dime</h3>
+                    <p class="project-description">
+                        Full-stack MarTech platform built with Next.js 14, Sanity CMS, and TypeScript. Hosts SEO documentation, content management, and related tools.
+                        <br><strong>Live:</strong> <a href="https://mktgdime.com" target="_blank" style="color: var(--accent);">mktgdime.com</a>
+                    </p>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">MCP Server Hub (Open Source)</h3>
+                    <p class="project-description">
+                        Open-source AI-powered MCP servers for SEO research, content generation, and technical audits. Integrates with Claude API for automated SEO workflows and competitor analysis.
+                        <br><strong>GitHub:</strong> <a href="https://github.com/mynk717/mktdm-mcp-hub" target="_blank" style="color: var(--accent);">github.com/mynk717/mktdm-mcp-hub</a>
+                    </p>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Solar Arrow</h3>
+                    <p class="project-description">
+                        CRM SaaS for solar panel sales teams with Google Sheets API and Telegram Bot integration. Features lead tracking, quote generation, and real-time notifications.
+                        <br><strong>Live:</strong> <a href="https://sa.mktgdime.com" target="_blank" style="color: var(--accent);">sa.mktgdime.com</a>
+                    </p>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">PingWing - WhatsApp CRM</h3>
+                    <p class="project-description">
+                        WhatsApp-based CRM application for managing customer communications and interactions. Streamlines WhatsApp business workflows with automated responses and contact management.
+                        <br><strong>GitHub:</strong> <a href="https://github.com/mynk717/wa-mktgdime" target="_blank" style="color: var(--accent);">github.com/mynk717/wa-mktgdime</a>
+                    </p>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Shree Shivam (Ongoing SEO)</h3>
+                    <p class="project-description">
+                        E-commerce Shopify store with ongoing technical SEO management. Published 50+ SEO-optimized articles, managing GSC, GA4, and Google Merchant Center via CLI.
+                        <br><strong>Live:</strong> <a href="https://shreeshivam.com" target="_blank" style="color: var(--accent);">shreeshivam.com</a>
+                    </p>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">BSR Films</h3>
+                    <p class="project-description">
+                        High-performance portfolio website for a film production company. Built with Next.js and Tailwind CSS, achieving 99/100 Lighthouse performance score.
+                        <br><strong>Live:</strong> <a href="https://bsrfilms.com" target="_blank" style="color: var(--accent);">bsrfilms.com</a>
+                    </p>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">MDN by Marketing Dime</h3>
+                    <p class="project-description">
+                        Technical documentation and knowledge base platform. Built with Next.js for SEO and marketing documentation.
+                        <br><strong>Live:</strong> <a href="https://mdn.mktgdime.com" target="_blank" style="color: var(--accent);">mdn.mktgdime.com</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="neo-card">
+            <h2 class="section-title">Education</h2>
+            <div class="info-block">
+                <h3>Bachelor of Technology — Mechanical Engineering</h3>
+                <p>Shree Shankaracharya Institute of Management & Technology (SSIPMT), Raipur · 2014</p>
+            </div>
+        </section>
+
+
+    </div>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add subtle parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const cards = document.querySelectorAll('.neo-card');
+            cards.forEach((card, index) => {
+                const speed = (index + 1) * 0.05;
+                card.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
