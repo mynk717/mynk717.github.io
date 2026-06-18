@@ -1,149 +1,15 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import dynamic from 'next/dynamic';
-
-// Register ScrollTrigger plugin in browser
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
-// Removed Lottie to reduce bundle size
 
 export default function Home() {
-  // Dark mode toggle state
-  const [darkMode, setDarkMode] = useState(false);
-
-  // Refs for GSAP entrance animations
-  const containerRef = useRef<HTMLDivElement>(null);
-  const headerRef = useRef<HTMLHeadingElement>(null);
-  const skillChipsRef = useRef<HTMLDivElement>(null);
-  const projectsRef = useRef<HTMLDivElement>(null);
-
-  // Toggle dark mode
-  const handleToggle = () => {
-    setDarkMode(!darkMode);
-    if (!darkMode) {
-      document.body.classList.add('dark-theme');
-    } else {
-      document.body.classList.remove('dark-theme');
-    }
-  };
-
-  // PDF download placeholder
   const handleDownloadPDF = () => {
-    alert('Download PDF logic to be implemented.');
+    window.open('/resume.pdf', '_blank');
   };
-
-  // GSAP motion effects
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Animate header bounce-in
-      gsap.from(headerRef.current!, {
-        y: -80,
-        scale: 0.6,
-        opacity: 0,
-        ease: 'bounce.out',
-        duration: 1.2,
-      });
-
-      // Container fade in
-      gsap.from(containerRef.current!, {
-        opacity: 0,
-        y: 30,
-        duration: 1,
-        delay: 0.5,
-        ease: 'power1.out',
-      });
-
-      // Skill chips entrance
-      if (skillChipsRef.current) {
-        gsap.from(skillChipsRef.current.children, {
-          opacity: 0,
-          scale: 0.4,
-          stagger: 0.1,
-          duration: 0.6,
-          ease: 'back.out(2)',
-        });
-      }
-
-      // Project cards fade in on scroll
-      if (projectsRef.current) {
-        Array.from(projectsRef.current.children).forEach((el) => {
-          gsap.from(el as Element, {
-            opacity: 0,
-            y: 50,
-            duration: 1,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: el as Element,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
-            },
-          });
-        });
-      }
-
-      // Skill chips hover spring
-      if (skillChipsRef.current) {
-        Array.from(skillChipsRef.current.children).forEach((el) => {
-          el.addEventListener('mouseenter', () =>
-            gsap.to(el, { scale: 1.15, duration: 0.25, ease: 'elastic.out(1,0.5)' })
-          );
-          el.addEventListener('mouseleave', () =>
-            gsap.to(el, { scale: 1, duration: 0.25, ease: 'power2.out' })
-          );
-        });
-      }
-
-      // Project cards floating on hover
-      if (projectsRef.current) {
-        Array.from(projectsRef.current.children).forEach((card) => {
-          card.addEventListener('mouseenter', () =>
-            gsap.to(card, { y: -12, boxShadow: '0 18px 38px rgba(0,0,0,0.12)', scale: 1.03, duration: 0.28, ease: 'power2.out' })
-          );
-          card.addEventListener('mouseleave', () =>
-            gsap.to(card, { y: 0, boxShadow: '0 8px 24px rgba(0,0,0,0.10)', scale: 1, duration: 0.22, ease: 'power2.in' })
-          );
-        });
-      }
-    });
-    return () => ctx.revert();
-  }, []);
 
   return (
     <div>
-      {/* Dark mode toggle */}
-      <div className="toggle-container fixed top-6 right-6 flex items-center gap-2 z-50">
-        <span className="toggle-label text-blue-700 font-semibold text-sm cursor-pointer" onClick={handleToggle}>
-          {darkMode ? 'Light Mode' : 'Dark Mode'}
-        </span>
-        <button
-          id="theme-toggle"
-          className={`toggle-switch w-12 h-6 rounded-full relative cursor-pointer transition-colors duration-300 ${
-            darkMode ? 'active bg-blue-900' : 'bg-gray-300'
-          }`}
-          onClick={handleToggle}
-          aria-checked={darkMode}
-          tabIndex={0}
-          aria-label="Toggle dark mode"
-        >
-          <span
-            className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-blue-600 transition-transform duration-300 ${
-              darkMode ? 'translate-x-6 bg-gray-50' : 'translate-x-0'
-            }`}
-          ></span>
-        </button>
-      </div>
-
-      {/* Main Resume Content */}
-      <div
-        ref={containerRef}
-        className="container relative mx-auto max-w-3xl bg-white rounded-2xl shadow-2xl p-10 mt-16 mb-16 z-10"
-        id="resume-content"
-      >
+      <div className="container relative mx-auto max-w-3xl bg-white rounded-2xl shadow-2xl p-10 mt-16 mb-16 z-10">
         <header className="header flex gap-8 items-center mb-10 border-b border-gray-300 pb-6">
           <Image
             src="https://live.staticflickr.com/65535/54757796402_3143280c58_w.jpg"
@@ -154,7 +20,7 @@ export default function Home() {
             priority
           />
           <div className="header-content flex-grow">
-            <h1 ref={headerRef} className="text-slate-900 dark:text-sky-400 text-4xl font-extrabold leading-tight">
+            <h1 className="text-slate-900 dark:text-sky-400 text-4xl font-extrabold leading-tight">
               Mayank Shukla
             </h1>
             <p className="text-slate-600 dark:text-slate-300 mt-1 text-lg">
@@ -198,7 +64,7 @@ export default function Home() {
             </ul>
           </section>
 
-          <section ref={skillChipsRef}>
+          <section>
             <h2 className="section-title">Technical Skills & Expertise</h2>
             <div className="flex flex-wrap gap-3">
               {[
@@ -223,17 +89,8 @@ export default function Home() {
             </div>
           </section>
 
-          <section ref={projectsRef}>
+          <section>
             <h2 className="section-title">Featured Projects</h2>
-              <div className="my-6 flex justify-center">
-                <div className="futuristic-icon">
-                  <div className="icon-ring"></div>
-                  <div className="icon-ring ring-2"></div>
-                  <div className="icon-core"></div>
-                </div>
-              </div>
-
-
             <div className="project-card">
               <strong className="block text-lg text-slate-900 dark:text-sky-400 mb-1">BizNexus Business Platform</strong>
               <p className="section-text">
