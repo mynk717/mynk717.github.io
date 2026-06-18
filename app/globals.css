@@ -554,6 +554,67 @@ body::after {
   color: #fae8ff;
 }
 
+/* Futuristic animated icon (replaces Lottie) */
+.futuristic-icon {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-ring {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 2px solid rgba(192, 132, 252, 0.4);
+  border-radius: 50%;
+  animation: ringPulse 3s ease-in-out infinite;
+}
+
+.icon-ring.ring-2 {
+  width: 90px;
+  height: 90px;
+  border-color: rgba(232, 121, 249, 0.6);
+  animation: ringPulse 3s ease-in-out infinite reverse;
+}
+
+.icon-core {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  border-radius: 50%;
+  box-shadow:
+    0 0 30px rgba(139, 92, 246, 0.8),
+    0 0 60px rgba(236, 72, 153, 0.6);
+  animation: coreGlow 2s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes coreGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 30px rgba(139, 92, 246, 0.8),
+      0 0 60px rgba(236, 72, 153, 0.6);
+  }
+  50% {
+    box-shadow:
+      0 0 50px rgba(139, 92, 246, 1),
+      0 0 100px rgba(236, 72, 153, 0.8);
+  }
+}
+
 /* Paper.js canvas sits behind content */
 canvas {
   position: fixed !important;

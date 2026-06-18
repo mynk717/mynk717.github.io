@@ -10,9 +10,7 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-// Dynamic import for Lottie (only run client side)
-const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
-import animationData from './animations/tech startup.json'; // Your Lottie animation file
+// Removed Lottie to reduce bundle size
 
 export default function Home() {
   // Dark mode toggle state
@@ -228,10 +226,14 @@ export default function Home() {
           <section ref={projectsRef}>
             <h2 className="section-title">Featured Projects</h2>
               <div className="my-6 flex justify-center">
-    <Lottie animationData={animationData} style={{ width: 150, height: 150 }} loop={true} />
-  </div>
+                <div className="futuristic-icon">
+                  <div className="icon-ring"></div>
+                  <div className="icon-ring ring-2"></div>
+                  <div className="icon-core"></div>
+                </div>
+              </div>
 
-  
+
             <div className="project-card">
               <strong className="block text-lg text-slate-900 dark:text-sky-400 mb-1">BizNexus Business Platform</strong>
               <p className="section-text">

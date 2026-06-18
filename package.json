@@ -2,16 +2,16 @@
   "name": "my-resume",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NODE_OPTIONS='--max-old-space-size=4096' next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
     "gsap": "^3.13.0",
     "init": "^0.1.2",
-    "lottie-react": "^2.4.1",
     "next": "15.5.2",
     "react": "19.1.0",
     "react-dom": "19.1.0"
