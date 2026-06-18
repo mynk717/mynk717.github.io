@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mayank Shukla - Full-Stack Developer & MarTech Engineer</title>
-    <meta name="description" content="Full-Stack Developer specializing in MarTech, SEO, and AI integration.">
+    <title>Mayank Shukla - Full-Stack Developer | MarTech · AI · SEO</title>
+    <meta name="description" content="Full-Stack Developer with 7+ years building SaaS products. Specialized in Next.js, TypeScript, AI integration, and SEO-driven development.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,7 +19,6 @@
             position: relative;
         }
 
-        /* Animated gradient background */
         body::before {
             content: '';
             position: fixed;
@@ -41,7 +40,6 @@
             50% { opacity: 0.8; }
         }
 
-        /* Floating particles */
         body::after {
             content: '';
             position: fixed;
@@ -194,6 +192,7 @@
             display: flex;
             gap: 1.5rem;
             font-weight: 700;
+            flex-wrap: wrap;
         }
 
         .links a {
@@ -363,6 +362,18 @@
             font-size: 1.2rem;
         }
 
+        .tech-badge {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: #c084fc;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            margin: 0.25rem 0.25rem 0 0;
+            font-weight: 600;
+        }
+
         ::-webkit-scrollbar {
             width: 12px;
         }
@@ -402,7 +413,6 @@
                 font-size: 2rem;
             }
             .links {
-                flex-wrap: wrap;
                 justify-content: center;
             }
         }
@@ -414,11 +424,11 @@
             <img src="https://live.staticflickr.com/65535/54757796402_3143280c58_w.jpg" alt="Mayank Shukla" class="profile-pic">
             <div>
                 <h1>Mayank Shukla</h1>
-                <p class="subtitle">Full-Stack MarTech Developer | AI & Web Solutions Expert</p>
+                <p class="subtitle">Full-Stack Developer | MarTech · AI Integration · Technical SEO</p>
                 <nav class="links">
                     <a href="https://linkedin.com/in/seomynk/" target="_blank">LinkedIn</a>
-                    <a href="https://peerlist.io/shuklamayank247" target="_blank">Peerlist</a>
                     <a href="https://github.com/mynk717/" target="_blank">GitHub</a>
+                    <a href="https://peerlist.io/shuklamayank247" target="_blank">Peerlist</a>
                 </nav>
                 <a href="/resume.pdf" class="btn">Download PDF Resume</a>
             </div>
@@ -428,27 +438,34 @@
             <section>
                 <h2 class="section-title">Professional Summary</h2>
                 <p class="section-text">
-                    Full-Stack MarTech Developer with 7+ years of experience building AI-integrated web solutions and data-driven marketing campaigns. Skilled in React, Node.js, TypeScript, and advanced databases (Neo4j, Qdrant, Mem0) for real-time personalization and automation. Delivered scalable platforms and campaigns achieving 150%+ organic traffic growth for 50+ clients, generating $200K+ revenue.
+                    Full-Stack Developer with 7+ years building SaaS products at the intersection of engineering and marketing technology. Proven expertise in Next.js, TypeScript, and SEO-driven development with multiple production applications deployed. Specialized in architecting scalable web applications, AI API integration, open-source contributions, and terminal-based automation workflows.
                 </p>
             </section>
 
             <section>
-                <h2 class="section-title">Technical Skills & Expertise</h2>
+                <h2 class="section-title">Technical Skills</h2>
                 <div>
-                    <span class="skill-chip">AI-powered Applications</span>
-                    <span class="skill-chip">Full Stack Development</span>
+                    <span class="skill-chip">TypeScript</span>
+                    <span class="skill-chip">JavaScript</span>
+                    <span class="skill-chip">Python</span>
+                    <span class="skill-chip">Bash/Shell</span>
+                    <span class="skill-chip">Next.js 14+</span>
+                    <span class="skill-chip">React 18</span>
+                    <span class="skill-chip">Tailwind CSS</span>
+                    <span class="skill-chip">Node.js</span>
+                    <span class="skill-chip">REST APIs</span>
                     <span class="skill-chip">Neo4j</span>
                     <span class="skill-chip">Qdrant</span>
-                    <span class="skill-chip">Mem0</span>
-                    <span class="skill-chip">JavaScript / TypeScript</span>
-                    <span class="skill-chip">React.js</span>
-                    <span class="skill-chip">Node.js</span>
-                    <span class="skill-chip">Firebase</span>
+                    <span class="skill-chip">Google Sheets API</span>
+                    <span class="skill-chip">Claude API</span>
+                    <span class="skill-chip">Gemini API</span>
                     <span class="skill-chip">Vercel</span>
-                    <span class="skill-chip">Google Analytics & Ads</span>
-                    <span class="skill-chip">SEO & SEM</span>
-                    <span class="skill-chip">Social Media Marketing</span>
-                    <span class="skill-chip">Headless WordPress</span>
+                    <span class="skill-chip">GitHub Actions</span>
+                    <span class="skill-chip">Google Search Console</span>
+                    <span class="skill-chip">Google Analytics 4</span>
+                    <span class="skill-chip">Technical SEO</span>
+                    <span class="skill-chip">Schema Markup</span>
+                    <span class="skill-chip">Core Web Vitals</span>
                 </div>
             </section>
 
@@ -456,35 +473,94 @@
                 <h2 class="section-title">Featured Projects</h2>
 
                 <div class="project-card">
-                    <strong class="project-title">BizNexus Business Platform</strong>
+                    <strong class="project-title">MCP Server Hub (Open Source)</strong>
                     <p class="section-text">
-                        Full-stack networking platform with real-time messaging and directory, serving 300+ users monthly. Integrated Firebase for secure authentication and Neo4j for relationship analytics, driving 20% user engagement increase.
+                        Open-source AI-powered MCP servers for SEO research, content generation, and technical audits. Integrates Claude API for automated competitor analysis and SEO workflow automation. Published on GitHub for community use.
                     </p>
+                    <div style="margin-top: 0.75rem;">
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">Claude API</span>
+                        <span class="tech-badge">TypeScript</span>
+                    </div>
                     <div style="margin-top: 1rem;">
-                        <a href="https://github.com/mynk717/biznexus-firebase" target="_blank" class="links" style="margin-right: 1rem;">GitHub Repo</a>
-                        <a href="https://biznexus.mktgdime.com/" target="_blank" class="links">Live Demo</a>
+                        <a href="https://github.com/mynk717/mktdm-mcp-hub" target="_blank" class="links">GitHub Repo</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <strong class="project-title">Solar Arrow CRM</strong>
+                    <p class="section-text">
+                        CRM SaaS application for solar panel sales teams with Google Sheets API integration. Features include automated lead tracking, quote generation, and real-time Telegram notifications for sales updates.
+                    </p>
+                    <div style="margin-top: 0.75rem;">
+                        <span class="tech-badge">Next.js</span>
+                        <span class="tech-badge">TypeScript</span>
+                        <span class="tech-badge">Google Sheets API</span>
+                        <span class="tech-badge">Telegram Bot</span>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <a href="https://sa.mktgdime.com/" target="_blank" class="links">Live Demo</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <strong class="project-title">PingWing - WhatsApp CRM</strong>
+                    <p class="section-text">
+                        WhatsApp-based CRM application for managing customer communications and interactions. Built to streamline WhatsApp business workflows with automated responses and contact management.
+                    </p>
+                    <div style="margin-top: 0.75rem;">
+                        <span class="tech-badge">Next.js</span>
+                        <span class="tech-badge">TypeScript</span>
+                        <span class="tech-badge">WhatsApp API</span>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <a href="https://github.com/mynk717/wa-mktgdime" target="_blank" class="links">GitHub Repo</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <strong class="project-title">Shree Shivam (Ongoing SEO Management)</strong>
+                    <p class="section-text">
+                        E-commerce Shopify store with ongoing technical SEO management. Published 50+ SEO-optimized articles, managing Google Search Console, GA4, and Google Merchant Center exclusively via terminal/CLI workflows.
+                    </p>
+                    <div style="margin-top: 0.75rem;">
+                        <span class="tech-badge">Shopify</span>
+                        <span class="tech-badge">Liquid</span>
+                        <span class="tech-badge">Google Cloud APIs</span>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <a href="https://shreeshivam.com/" target="_blank" class="links">Live Site</a>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <strong class="project-title">BSR Films Production Website</strong>
                     <p class="section-text">
-                        Responsive website for film production portfolio, driving 30% increase in client bookings via SEO. Optimized with Tailwind CSS and Vercel for 99% Lighthouse performance score.
+                        High-performance portfolio website for film production company. Achieved 99/100 Lighthouse performance score through optimization of images, lazy loading, and Core Web Vitals tuning.
                     </p>
+                    <div style="margin-top: 0.75rem;">
+                        <span class="tech-badge">Next.js</span>
+                        <span class="tech-badge">Tailwind CSS</span>
+                        <span class="tech-badge">Vercel Edge</span>
+                    </div>
                     <div style="margin-top: 1rem;">
-                        <a href="https://github.com/mynk717/bsr-film-website" target="_blank" class="links" style="margin-right: 1rem;">GitHub Repo</a>
+                        <a href="https://github.com/mynk717/bsr-film-website" target="_blank" class="links" style="margin-right: 1rem;">GitHub</a>
                         <a href="https://www.bsrfilms.com/" target="_blank" class="links">Live Site</a>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <strong class="project-title">Browser Bot Automation Tool</strong>
+                    <strong class="project-title">Marketing Dime Platform</strong>
                     <p class="section-text">
-                        AI-driven automation tool with Qdrant and Mem0 for personalized scraping, adopted by 120+ non-technical users. Built with Node.js and Vercel, achieving 98% task success rate across 10K+ monthly runs.
+                        Full-stack MarTech platform built with Next.js 14, Sanity CMS, and TypeScript. Hosts SEO documentation, content management system, and related tools for marketing professionals.
                     </p>
+                    <div style="margin-top: 0.75rem;">
+                        <span class="tech-badge">Next.js 14</span>
+                        <span class="tech-badge">Sanity CMS</span>
+                        <span class="tech-badge">TypeScript</span>
+                    </div>
                     <div style="margin-top: 1rem;">
-                        <a href="https://github.com/mynk717/BrowserBot" target="_blank" class="links" style="margin-right: 1rem;">GitHub Repo</a>
-                        <a href="https://browser-bot.vercel.app/" target="_blank" class="links">Try it Here</a>
+                        <a href="https://mktgdime.com/" target="_blank" class="links">Live Platform</a>
                     </div>
                 </div>
             </section>
@@ -493,36 +569,59 @@
                 <h2 class="section-title">Professional Experience</h2>
 
                 <div class="project-card">
-                    <strong class="project-title">Digital Marketing Specialist (Freelance) – Marketing Dime (2022–Present)</strong>
-                    <p class="section-text">
-                        Executed SEO and paid campaigns across Google/Meta, increasing organic traffic by 150% for 50+ clients, generating $200K revenue. Developed full-stack websites with AI automation, integrating Qdrant for personalized user flows.
-                    </p>
+                    <strong class="project-title">Full-Stack Developer & SEO Consultant — Marketing Dime (Freelance)</strong>
+                    <p class="section-text" style="color: #94a3b8; font-size: 0.875rem; margin-bottom: 0.75rem;">2022 – Present | Remote</p>
+                    <ul>
+                        <li>Architected and deployed 6+ production SaaS applications using Next.js 14, TypeScript, and modern CI/CD pipelines on Vercel</li>
+                        <li>Developed open-source MCP Server Hub integrating Claude API to automate SEO competitor analysis and content generation workflows</li>
+                        <li>Created Solar Arrow CRM with Google Sheets API integration, automated lead tracking, and real-time Telegram notifications</li>
+                        <li>Manage Google Search Console, GA4, and Merchant Center exclusively through CLI/API workflows for e-commerce clients</li>
+                        <li>Published 50+ SEO-optimized articles and maintained Core Web Vitals performance for Shopify stores</li>
+                    </ul>
                 </div>
 
                 <div class="project-card">
-                    <strong class="project-title">Digital Marketing Executive – Wallfort (2021–2022)</strong>
-                    <p class="section-text">
-                        Led SEO and social media campaigns for real estate, growing leads from 200 to 600 monthly ($100K revenue). Built data-driven content strategies, increasing click-through rates by 35%.
-                    </p>
+                    <strong class="project-title">Digital Marketing Specialist — Wallfort Real Estate</strong>
+                    <p class="section-text" style="color: #94a3b8; font-size: 0.875rem; margin-bottom: 0.75rem;">2021 – 2022 | Raipur, India</p>
+                    <ul>
+                        <li>Managed end-to-end SEO strategy including technical audits, keyword research, and on-page optimization</li>
+                        <li>Implemented structured data markup (Schema.org) and local SEO across 20+ property listing pages</li>
+                        <li>Administered Google Analytics, Search Console, and social media campaigns for lead generation</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <strong class="project-title">SEO Analyst — Black Book Investment / JGRF Technology</strong>
+                    <p class="section-text" style="color: #94a3b8; font-size: 0.875rem; margin-bottom: 0.75rem;">2018 – 2021</p>
+                    <ul>
+                        <li>Conducted comprehensive technical SEO audits using Screaming Frog, Semrush, and Ahrefs</li>
+                        <li>Implemented schema markup, meta optimization, and internal linking across 50+ client websites</li>
+                        <li>Collaborated with development teams to resolve technical SEO issues including site speed and mobile optimization</li>
+                    </ul>
                 </div>
             </section>
 
             <section>
                 <h2 class="section-title">Education</h2>
                 <div class="project-card">
-                    <strong class="project-title">Bachelor of Technology – Mechanical Engineering</strong>
+                    <strong class="project-title">Bachelor of Technology in Mechanical Engineering</strong>
                     <p class="section-text">
-                        Shree Shankaracharya Institute of Management & Technology (SSIPMT), 2014
+                        Shree Shankaracharya Institute of Management & Technology (SSIPMT), Raipur<br>
+                        Graduated: 2014
+                    </p>
+                    <p class="section-text" style="margin-top: 0.75rem; font-style: italic; color: #94a3b8;">
+                        Self-taught full-stack web development (2017-2018) · Online coursework in JavaScript, React, Node.js, and TypeScript · Active open-source contributor
                     </p>
                 </div>
             </section>
 
             <section>
-                <h2 class="section-title">Certifications</h2>
+                <h2 class="section-title">Key Achievements</h2>
                 <ul>
-                    <li>Local SEO Exam – Semrush Academy (2023)</li>
-                    <li>Google Analytics for Beginners – Analytics Academy (2022)</li>
-                    <li>AI for Marketing – Coursera (2024)</li>
+                    <li>Architected and deployed 6+ production SaaS applications independently from concept to launch</li>
+                    <li>Achieved 99/100 Lighthouse performance score on bsrfilms.com through Core Web Vitals optimization</li>
+                    <li>Built and open-sourced AI-powered MCP Server Hub integrating Claude API for SEO automation</li>
+                    <li>Maintained 99.9% uptime across all deployed applications with proactive monitoring</li>
                 </ul>
             </section>
         </main>
