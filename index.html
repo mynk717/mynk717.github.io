@@ -1,630 +1,1026 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mayank Shukla - Full-Stack Developer | MarTech · AI · SEO</title>
-    <meta name="description" content="Full-Stack Developer with 7+ years building SaaS products. Specialized in Next.js, TypeScript, AI integration, and SEO-driven development.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mayank Shukla — Full-Stack MarTech Developer & SEO Engineer</title>
+<meta name="description" content="Full-Stack MarTech Developer and SEO Engineer with 7+ years. Building AI-powered SaaS, SEO automation pipelines, and marketing tech products. Open to remote roles.">
+<meta property="og:title" content="Mayank Shukla — MarTech Developer & SEO Engineer">
+<meta property="og:description" content="Building AI-integrated SaaS, SEO automation, and marketing tools. 7+ years. Raipur, India.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0e27;
-            color: #e0e7ff;
-            overflow-x: hidden;
-            position: relative;
-        }
+<style>
+/* === DESIGN TOKENS === */
+:root {
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+  --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+  --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+  --text-hero: clamp(2.5rem, 1rem + 5vw, 5.5rem);
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 75, 145, 0.3), transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(138, 43, 226, 0.2), transparent 50%),
-                linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
-            animation: gradientShift 15s ease infinite;
-            z-index: 0;
-        }
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
+  --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem;
+  --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem;
+  --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
 
-        @keyframes gradientShift {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
+  --radius-sm: 0.375rem; --radius-md: 0.5rem;
+  --radius-lg: 0.75rem; --radius-xl: 1rem; --radius-full: 9999px;
 
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.4), transparent),
-                radial-gradient(2px 2px at 60% 70%, rgba(255, 255, 255, 0.3), transparent),
-                radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.5), transparent);
-            background-size: 200% 200%;
-            animation: particleFloat 20s linear infinite;
-            z-index: 0;
-            pointer-events: none;
-        }
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'DM Mono', 'Fira Code', monospace;
 
-        @keyframes particleFloat {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
-        }
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --content-narrow: 640px; --content-default: 960px; --content-wide: 1200px;
+}
 
-        .container {
-            max-width: 900px;
-            margin: 80px auto 40px;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 2rem;
-            box-shadow:
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            padding: 2.5rem 3rem;
-            position: relative;
-            z-index: 10;
-            animation: containerFadeIn 1s ease-out;
-        }
+:root, [data-theme="light"] {
+  --color-bg: #f7f6f2;
+  --color-surface: #f9f8f5;
+  --color-surface-2: #fbfbf9;
+  --color-surface-offset: #f0ede8;
+  --color-surface-dynamic: #e6e4df;
+  --color-divider: #dcd9d5;
+  --color-border: #d4d1ca;
+  --color-text: #1a1916;
+  --color-text-muted: #6b6a65;
+  --color-text-faint: #aaa9a4;
+  --color-text-inverse: #f9f8f4;
+  --color-primary: #01696f;
+  --color-primary-hover: #0c4e54;
+  --color-primary-highlight: #cedcd8;
+  --color-accent: #1a1916;
+  --shadow-sm: 0 1px 2px oklch(0.2 0.01 80 / 0.06);
+  --shadow-md: 0 4px 12px oklch(0.2 0.01 80 / 0.08);
+  --shadow-lg: 0 12px 32px oklch(0.2 0.01 80 / 0.12);
+}
 
-        @keyframes containerFadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+[data-theme="dark"] {
+  --color-bg: #0e0d0c;
+  --color-surface: #131211;
+  --color-surface-2: #181715;
+  --color-surface-offset: #1c1b19;
+  --color-surface-dynamic: #242320;
+  --color-divider: #242220;
+  --color-border: #2e2d2b;
+  --color-text: #e2e0dc;
+  --color-text-muted: #7a7976;
+  --color-text-faint: #4a4948;
+  --color-text-inverse: #0e0d0c;
+  --color-primary: #4f98a3;
+  --color-primary-hover: #66b0bb;
+  --color-primary-highlight: #1a2e30;
+  --color-accent: #e2e0dc;
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.25);
+  --shadow-md: 0 4px 12px oklch(0 0 0 / 0.35);
+  --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.45);
+}
 
-        .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 2rem;
-            padding: 2px;
-            background: linear-gradient(135deg, rgba(138, 43, 226, 0.5), rgba(255, 75, 145, 0.3), rgba(120, 119, 198, 0.5));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            animation: borderGlow 3s ease-in-out infinite;
-            pointer-events: none;
-        }
+/* === BASE === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-16);
+}
+body {
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+  transition: background var(--transition-interactive), color var(--transition-interactive);
+}
+img { display: block; max-width: 100%; height: auto; }
+ul[role="list"] { list-style: none; }
+a { color: inherit; text-decoration: none; transition: color var(--transition-interactive); }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+::selection { background: oklch(from var(--color-primary) l c h / 0.2); }
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
 
-        @keyframes borderGlow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
+/* === LAYOUT === */
+.container { max-width: var(--content-default); margin-inline: auto; padding-inline: var(--space-6); }
+.container--wide { max-width: var(--content-wide); margin-inline: auto; padding-inline: var(--space-6); }
+section { padding-block: clamp(var(--space-12), 6vw, var(--space-24)); }
 
-        .header {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            margin-bottom: 3rem;
-            border-bottom: 1px solid rgba(192, 132, 252, 0.3);
-            padding-bottom: 1.5rem;
-            position: relative;
-        }
+/* === NAV === */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: var(--space-4) var(--space-6);
+  display: flex; align-items: center; justify-content: space-between;
+  background: oklch(from var(--color-bg) l c h / 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-divider);
+  transition: background var(--transition-interactive);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+.nav-logo svg { color: var(--color-primary); }
+.nav-links {
+  display: flex; align-items: center; gap: var(--space-6);
+  list-style: none;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-weight: 450;
+  transition: color var(--transition-interactive);
+}
+.nav-links a:hover { color: var(--color-text); }
+.nav-right { display: flex; align-items: center; gap: var(--space-4); }
+.theme-toggle {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px;
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  transition: color var(--transition-interactive), background var(--transition-interactive);
+}
+.theme-toggle:hover { color: var(--color-text); background: var(--color-surface-offset); }
+.btn-nav {
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: background var(--transition-interactive), transform var(--transition-interactive);
+}
+.btn-nav:hover { background: var(--color-primary-hover); transform: translateY(-1px); }
 
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(192, 132, 252, 0.8), rgba(232, 121, 249, 0.8), transparent);
-            animation: lineGlow 3s ease-in-out infinite;
-        }
+/* === HERO === */
+.hero {
+  min-height: 100dvh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; left: 60%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, oklch(from var(--color-primary) l c h / 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-label {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-6);
+}
+.hero-label::before {
+  content: '';
+  display: block; width: 24px; height: 1px;
+  background: var(--color-primary);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+  max-width: 16ch;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--color-primary);
+}
+.hero-desc {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  max-width: 52ch;
+  line-height: 1.5;
+  margin-bottom: var(--space-10);
+  font-weight: 350;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: background var(--transition-interactive), transform var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+.btn-primary:hover { background: var(--color-primary); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 450;
+  color: var(--color-text-muted);
+  transition: all var(--transition-interactive);
+}
+.btn-ghost:hover { border-color: var(--color-primary); color: var(--color-primary); background: var(--color-primary-highlight); }
+.hero-stats {
+  display: flex; gap: var(--space-10);
+  margin-top: var(--space-16);
+  padding-top: var(--space-10);
+  border-top: 1px solid var(--color-divider);
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1;
+}
+.stat-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: var(--space-1);
+  font-family: var(--font-mono);
+}
 
-        @keyframes lineGlow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
+/* === SECTION HEADER === */
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+.section-tag::before { content: '//'; opacity: 0.5; }
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  line-height: 1.15;
+}
 
-        .profile-pic {
-            width: 112px;
-            height: 112px;
-            border-radius: 1rem;
-            object-fit: cover;
-            box-shadow:
-                0 0 20px rgba(138, 43, 226, 0.6),
-                0 0 40px rgba(255, 75, 145, 0.4);
-            animation: profilePulse 3s ease-in-out infinite;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+/* === ABOUT === */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+.about-text p {
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+  line-height: 1.75;
+  max-width: 54ch;
+  margin-bottom: var(--space-4);
+}
+.about-text p:first-child { color: var(--color-text); font-weight: 400; }
+.about-text p strong { color: var(--color-text); font-weight: 550; }
+.about-links { display: flex; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-6); }
+.about-link {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-interactive);
+}
+.about-link:hover { color: var(--color-primary); border-color: var(--color-primary); background: var(--color-primary-highlight); }
+.skills-list { display: flex; flex-direction: column; gap: var(--space-3); }
+.skill-row {
+  display: flex; align-items: baseline; gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  transition: border-color var(--transition-interactive);
+}
+.skill-row:hover { border-color: var(--color-primary); }
+.skill-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  min-width: 100px;
+  flex-shrink: 0;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.skill-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  background: var(--color-surface-offset);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+}
 
-        @keyframes profilePulse {
-            0%, 100% {
-                box-shadow:
-                    0 0 20px rgba(138, 43, 226, 0.6),
-                    0 0 40px rgba(255, 75, 145, 0.4);
-            }
-            50% {
-                box-shadow:
-                    0 0 30px rgba(138, 43, 226, 0.8),
-                    0 0 60px rgba(255, 75, 145, 0.6);
-            }
-        }
+/* === PROJECTS === */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+.project-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  display: flex; flex-direction: column;
+  gap: var(--space-4);
+  transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive), transform var(--transition-interactive);
+  position: relative;
+  overflow: hidden;
+}
+.project-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-interactive);
+}
+.project-card:hover { border-color: oklch(from var(--color-primary) l c h / 0.3); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.project-card:hover::before { opacity: 1; }
+.project-card.featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+}
+.project-meta { display: flex; align-items: center; justify-content: space-between; }
+.project-type {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.project-links { display: flex; gap: var(--space-3); }
+.project-link {
+  display: flex; align-items: center; gap: 4px;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  transition: color var(--transition-interactive);
+}
+.project-link:hover { color: var(--color-primary); }
+.project-name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+.project-desc {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.65;
+  max-width: 52ch;
+}
+.project-stack { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: auto; }
+.stack-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  background: var(--color-surface-offset);
+  border: 1px solid var(--color-divider);
+  padding: 3px var(--space-2);
+  border-radius: var(--radius-sm);
+}
+.project-metric {
+  display: flex; flex-direction: column; gap: var(--space-6);
+  justify-content: center;
+}
+.metric-item { border-left: 2px solid var(--color-primary); padding-left: var(--space-4); }
+.metric-val {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  font-weight: 400;
+}
+.metric-desc {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
 
-        .profile-pic:hover {
-            transform: scale(1.08) rotate(3deg);
-            box-shadow:
-                0 0 40px rgba(138, 43, 226, 1),
-                0 0 80px rgba(255, 75, 145, 0.8);
-        }
+/* === CASE STUDY === */
+.case-study {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10);
+}
+.case-header { margin-bottom: var(--space-10); }
+.case-client {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-2);
+}
+.case-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+.case-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+}
+.case-metric {
+  background: var(--color-bg);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+.case-metric-val {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-primary);
+  font-weight: 400;
+  line-height: 1;
+}
+.case-metric-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.case-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+}
+.case-section-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-4);
+}
+.case-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
+.case-list li {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  padding-left: var(--space-4);
+  position: relative;
+  line-height: 1.6;
+}
+.case-list li::before {
+  content: '→';
+  position: absolute; left: 0;
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+}
 
-        h1 {
-            background: linear-gradient(135deg, #fae8ff, #e879f9, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 30px rgba(192, 132, 252, 0.5));
-            font-size: 2.5rem;
-            font-weight: 800;
-            animation: titleFloat 3s ease-in-out infinite;
-        }
+/* === EXPERIENCE === */
+.exp-timeline { display: flex; flex-direction: column; gap: var(--space-2); }
+.exp-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: var(--space-8);
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-period {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  padding-top: 4px;
+}
+.exp-role { font-weight: 500; color: var(--color-text); margin-bottom: var(--space-1); }
+.exp-company {
+  font-size: var(--text-sm);
+  color: var(--color-primary);
+  font-weight: 450;
+  margin-bottom: var(--space-3);
+}
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
+.exp-bullets li {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  padding-left: var(--space-4);
+  position: relative;
+  line-height: 1.6;
+}
+.exp-bullets li::before {
+  content: '·';
+  position: absolute; left: var(--space-1);
+  color: var(--color-primary);
+  font-size: 1.2em;
+}
 
-        @keyframes titleFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
+/* === CONTACT === */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+.contact-headline {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  line-height: 1.15;
+  margin-bottom: var(--space-6);
+}
+.contact-headline em { font-style: italic; color: var(--color-primary); }
+.contact-sub {
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  max-width: 44ch;
+  margin-bottom: var(--space-8);
+}
+.contact-links { display: flex; flex-direction: column; gap: var(--space-4); }
+.contact-link {
+  display: flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  transition: all var(--transition-interactive);
+}
+.contact-link:hover {
+  border-color: oklch(from var(--color-primary) l c h / 0.4);
+  background: var(--color-primary-highlight);
+  transform: translateX(4px);
+}
+.contact-link-icon { color: var(--color-primary); display: flex; }
+.contact-link-label { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+.contact-link-val { font-size: var(--text-sm); color: var(--color-text); font-weight: 450; }
+.contact-availability {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: #4a9e6b;
+  background: oklch(0.62 0.12 145 / 0.1);
+  border: 1px solid oklch(0.62 0.12 145 / 0.25);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-6);
+}
+.avail-dot { width: 6px; height: 6px; border-radius: 50%; background: #4a9e6b; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
-        .subtitle {
-            color: #e0e7ff;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-            font-size: 1.125rem;
-            margin-top: 0.5rem;
-        }
+/* === FOOTER === */
+footer {
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--color-divider);
+}
+.footer-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: var(--space-4);
+}
+.footer-mono { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-faint); }
 
-        .links {
-            margin-top: 0.75rem;
-            display: flex;
-            gap: 1.5rem;
-            font-weight: 700;
-            flex-wrap: wrap;
-        }
+/* === MOBILE NAV === */
+.nav-hamburger { display: none; }
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .about-grid, .contact-grid, .case-body, .projects-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+  .project-card.featured { grid-template-columns: 1fr; gap: var(--space-6); }
+  .case-metrics { grid-template-columns: 1fr 1fr; }
+  .hero h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+  .hero-stats { flex-wrap: wrap; gap: var(--space-6); }
+  .exp-item { grid-template-columns: 1fr; gap: var(--space-2); }
+}
 
-        .links a {
-            color: #c084fc;
-            text-decoration: none;
-            position: relative;
-            transition: all 0.3s ease;
-            text-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
-        }
-
-        .links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #c084fc, #e879f9);
-            transition: width 0.3s ease;
-            box-shadow: 0 0 8px rgba(192, 132, 252, 0.6);
-        }
-
-        .links a:hover {
-            color: #e879f9;
-            text-shadow: 0 0 20px rgba(232, 121, 249, 0.8);
-        }
-
-        .links a:hover::after {
-            width: 100%;
-        }
-
-        .btn {
-            margin-top: 1.25rem;
-            background: linear-gradient(135deg, #8b5cf6, #ec4899);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.75rem;
-            font-weight: 700;
-            cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            box-shadow:
-                0 0 20px rgba(139, 92, 246, 0.5),
-                0 4px 12px rgba(0, 0, 0, 0.3);
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            background: linear-gradient(135deg, #a78bfa, #f472b6);
-            box-shadow:
-                0 0 40px rgba(139, 92, 246, 0.8),
-                0 8px 24px rgba(0, 0, 0, 0.4);
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, #c084fc, #e879f9, #f472b6, #fb923c);
-            background-size: 300% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1.5rem;
-            margin-top: 2.5rem;
-            animation: gradientText 4s ease infinite;
-            position: relative;
-        }
-
-        @keyframes gradientText {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #c084fc, #e879f9);
-            border-radius: 2px;
-            box-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
-        }
-
-        .section-text {
-            color: #cbd5e1;
-            line-height: 1.7;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .skill-chip {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(192, 132, 252, 0.3);
-            color: #e0e7ff;
-            padding: 0.45rem 1rem;
-            border-radius: 9999px;
-            margin: 0.25rem;
-            font-weight: 600;
-            font-size: 0.875rem;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .skill-chip:hover {
-            transform: scale(1.1) translateY(-2px);
-            background: rgba(192, 132, 252, 0.15);
-            border-color: rgba(192, 132, 252, 0.8);
-            box-shadow:
-                0 0 20px rgba(192, 132, 252, 0.5),
-                0 4px 12px rgba(0, 0, 0, 0.3);
-            color: #fae8ff;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 1.5rem;
-            padding: 1.5rem 1.75rem;
-            margin-bottom: 1.5rem;
-            box-shadow:
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(192, 132, 252, 0.4);
-            box-shadow:
-                0 0 40px rgba(192, 132, 252, 0.3),
-                0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .project-title {
-            color: #e879f9;
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        ul {
-            list-style: none;
-            padding-left: 1.5rem;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #cbd5e1;
-            line-height: 1.7;
-        }
-
-        ul li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: #c084fc;
-            font-size: 1.2rem;
-        }
-
-        .tech-badge {
-            display: inline-block;
-            background: rgba(139, 92, 246, 0.1);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            color: #c084fc;
-            padding: 0.25rem 0.75rem;
-            border-radius: 0.5rem;
-            font-size: 0.75rem;
-            margin: 0.25rem 0.25rem 0 0;
-            font-weight: 600;
-        }
-
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(10, 14, 39, 0.5);
-            border-left: 1px solid rgba(192, 132, 252, 0.1);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #8b5cf6, #ec4899);
-            border-radius: 6px;
-            border: 2px solid rgba(10, 14, 39, 0.5);
-            box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #a78bfa, #f472b6);
-            box-shadow: 0 0 20px rgba(167, 139, 250, 0.8);
-        }
-
-        ::selection {
-            background: rgba(192, 132, 252, 0.3);
-            color: #fae8ff;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                margin: 40px 20px;
-                padding: 2rem 1.5rem;
-            }
-            .header {
-                flex-direction: column;
-                text-align: center;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            .links {
-                justify-content: center;
-            }
-        }
-    </style>
+/* === SCROLL REVEAL === */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <img src="https://live.staticflickr.com/65535/54757796402_3143280c58_w.jpg" alt="Mayank Shukla" class="profile-pic">
-            <div>
-                <h1>Mayank Shukla</h1>
-                <p class="subtitle">Full-Stack Developer | MarTech · AI Integration · Technical SEO</p>
-                <nav class="links">
-                    <a href="https://linkedin.com/in/seomynk/" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/mynk717/" target="_blank">GitHub</a>
-                    <a href="https://peerlist.io/shuklamayank247" target="_blank">Peerlist</a>
-                </nav>
-                <a href="/resume.pdf" class="btn">Download PDF Resume</a>
-            </div>
-        </header>
 
-        <main>
-            <section>
-                <h2 class="section-title">Professional Summary</h2>
-                <p class="section-text">
-                    Full-Stack Developer with 7+ years building SaaS products at the intersection of engineering and marketing technology. Proven expertise in Next.js, TypeScript, and SEO-driven development with multiple production applications deployed. Specialized in architecting scalable web applications, AI API integration, open-source contributions, and terminal-based automation workflows.
-                </p>
-            </section>
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-logo" aria-label="Mayank Shukla home">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+      <rect x="2" y="2" width="8" height="8" rx="1.5" fill="currentColor" opacity="0.9"/>
+      <rect x="12" y="2" width="8" height="8" rx="1.5" fill="currentColor" opacity="0.4"/>
+      <rect x="2" y="12" width="8" height="8" rx="1.5" fill="currentColor" opacity="0.4"/>
+      <rect x="12" y="12" width="8" height="8" rx="1.5" fill="currentColor" opacity="0.15"/>
+    </svg>
+    mynk
+  </a>
+  <ul class="nav-links" role="list">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#casestudy">Case Study</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <a href="mailto:shukla.mayank247@gmail.com" class="btn-nav">Hire me →</a>
+  </div>
+</nav>
 
-            <section>
-                <h2 class="section-title">Technical Skills</h2>
-                <div>
-                    <span class="skill-chip">TypeScript</span>
-                    <span class="skill-chip">JavaScript</span>
-                    <span class="skill-chip">Python</span>
-                    <span class="skill-chip">Bash/Shell</span>
-                    <span class="skill-chip">Next.js 14+</span>
-                    <span class="skill-chip">React 18</span>
-                    <span class="skill-chip">Tailwind CSS</span>
-                    <span class="skill-chip">Node.js</span>
-                    <span class="skill-chip">REST APIs</span>
-                    <span class="skill-chip">Neo4j</span>
-                    <span class="skill-chip">Qdrant</span>
-                    <span class="skill-chip">Google Sheets API</span>
-                    <span class="skill-chip">Claude API</span>
-                    <span class="skill-chip">Gemini API</span>
-                    <span class="skill-chip">Vercel</span>
-                    <span class="skill-chip">GitHub Actions</span>
-                    <span class="skill-chip">Google Search Console</span>
-                    <span class="skill-chip">Google Analytics 4</span>
-                    <span class="skill-chip">Technical SEO</span>
-                    <span class="skill-chip">Schema Markup</span>
-                    <span class="skill-chip">Core Web Vitals</span>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="section-title">Featured Projects</h2>
-
-                <div class="project-card">
-                    <strong class="project-title">MCP Server Hub (Open Source)</strong>
-                    <p class="section-text">
-                        Open-source AI-powered MCP servers for SEO research, content generation, and technical audits. Integrates Claude API for automated competitor analysis and SEO workflow automation. Published on GitHub for community use.
-                    </p>
-                    <div style="margin-top: 0.75rem;">
-                        <span class="tech-badge">Node.js</span>
-                        <span class="tech-badge">Claude API</span>
-                        <span class="tech-badge">TypeScript</span>
-                    </div>
-                    <div style="margin-top: 1rem;">
-                        <a href="https://github.com/mynk717/mktdm-mcp-hub" target="_blank" class="links">GitHub Repo</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <strong class="project-title">Solar Arrow CRM</strong>
-                    <p class="section-text">
-                        CRM SaaS application for solar panel sales teams with Google Sheets API integration. Features include automated lead tracking, quote generation, and real-time Telegram notifications for sales updates.
-                    </p>
-                    <div style="margin-top: 0.75rem;">
-                        <span class="tech-badge">Next.js</span>
-                        <span class="tech-badge">TypeScript</span>
-                        <span class="tech-badge">Google Sheets API</span>
-                        <span class="tech-badge">Telegram Bot</span>
-                    </div>
-                    <div style="margin-top: 1rem;">
-                        <a href="https://sa.mktgdime.com/" target="_blank" class="links">Live Demo</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <strong class="project-title">PingWing - WhatsApp CRM</strong>
-                    <p class="section-text">
-                        WhatsApp-based CRM application for managing customer communications and interactions. Built to streamline WhatsApp business workflows with automated responses and contact management.
-                    </p>
-                    <div style="margin-top: 0.75rem;">
-                        <span class="tech-badge">Next.js</span>
-                        <span class="tech-badge">TypeScript</span>
-                        <span class="tech-badge">WhatsApp API</span>
-                    </div>
-                    <div style="margin-top: 1rem;">
-                        <a href="https://github.com/mynk717/wa-mktgdime" target="_blank" class="links">GitHub Repo</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <strong class="project-title">Shree Shivam (Ongoing SEO Management)</strong>
-                    <p class="section-text">
-                        E-commerce Shopify store with ongoing technical SEO management. Published 50+ SEO-optimized articles, managing Google Search Console, GA4, and Google Merchant Center exclusively via terminal/CLI workflows.
-                    </p>
-                    <div style="margin-top: 0.75rem;">
-                        <span class="tech-badge">Shopify</span>
-                        <span class="tech-badge">Liquid</span>
-                        <span class="tech-badge">Google Cloud APIs</span>
-                    </div>
-                    <div style="margin-top: 1rem;">
-                        <a href="https://shreeshivam.com/" target="_blank" class="links">Live Site</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <strong class="project-title">BSR Films Production Website</strong>
-                    <p class="section-text">
-                        High-performance portfolio website for film production company. Achieved 99/100 Lighthouse performance score through optimization of images, lazy loading, and Core Web Vitals tuning.
-                    </p>
-                    <div style="margin-top: 0.75rem;">
-                        <span class="tech-badge">Next.js</span>
-                        <span class="tech-badge">Tailwind CSS</span>
-                        <span class="tech-badge">Vercel Edge</span>
-                    </div>
-                    <div style="margin-top: 1rem;">
-                        <a href="https://github.com/mynk717/bsr-film-website" target="_blank" class="links" style="margin-right: 1rem;">GitHub</a>
-                        <a href="https://www.bsrfilms.com/" target="_blank" class="links">Live Site</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <strong class="project-title">Marketing Dime Platform</strong>
-                    <p class="section-text">
-                        Full-stack MarTech platform built with Next.js 14, Sanity CMS, and TypeScript. Hosts SEO documentation, content management system, and related tools for marketing professionals.
-                    </p>
-                    <div style="margin-top: 0.75rem;">
-                        <span class="tech-badge">Next.js 14</span>
-                        <span class="tech-badge">Sanity CMS</span>
-                        <span class="tech-badge">TypeScript</span>
-                    </div>
-                    <div style="margin-top: 1rem;">
-                        <a href="https://mktgdime.com/" target="_blank" class="links">Live Platform</a>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="section-title">Professional Experience</h2>
-
-                <div class="project-card">
-                    <strong class="project-title">Full-Stack Developer & SEO Consultant — Marketing Dime (Freelance)</strong>
-                    <p class="section-text" style="color: #94a3b8; font-size: 0.875rem; margin-bottom: 0.75rem;">2022 – Present | Remote</p>
-                    <ul>
-                        <li>Architected and deployed 6+ production SaaS applications using Next.js 14, TypeScript, and modern CI/CD pipelines on Vercel</li>
-                        <li>Developed open-source MCP Server Hub integrating Claude API to automate SEO competitor analysis and content generation workflows</li>
-                        <li>Created Solar Arrow CRM with Google Sheets API integration, automated lead tracking, and real-time Telegram notifications</li>
-                        <li>Manage Google Search Console, GA4, and Merchant Center exclusively through CLI/API workflows for e-commerce clients</li>
-                        <li>Published 50+ SEO-optimized articles and maintained Core Web Vitals performance for Shopify stores</li>
-                    </ul>
-                </div>
-
-                <div class="project-card">
-                    <strong class="project-title">Digital Marketing Specialist — Wallfort Real Estate</strong>
-                    <p class="section-text" style="color: #94a3b8; font-size: 0.875rem; margin-bottom: 0.75rem;">2021 – 2022 | Raipur, India</p>
-                    <ul>
-                        <li>Managed end-to-end SEO strategy including technical audits, keyword research, and on-page optimization</li>
-                        <li>Implemented structured data markup (Schema.org) and local SEO across 20+ property listing pages</li>
-                        <li>Administered Google Analytics, Search Console, and social media campaigns for lead generation</li>
-                    </ul>
-                </div>
-
-                <div class="project-card">
-                    <strong class="project-title">SEO Analyst — Black Book Investment / JGRF Technology</strong>
-                    <p class="section-text" style="color: #94a3b8; font-size: 0.875rem; margin-bottom: 0.75rem;">2018 – 2021</p>
-                    <ul>
-                        <li>Conducted comprehensive technical SEO audits using Screaming Frog, Semrush, and Ahrefs</li>
-                        <li>Implemented schema markup, meta optimization, and internal linking across 50+ client websites</li>
-                        <li>Collaborated with development teams to resolve technical SEO issues including site speed and mobile optimization</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="section-title">Education</h2>
-                <div class="project-card">
-                    <strong class="project-title">Bachelor of Technology in Mechanical Engineering</strong>
-                    <p class="section-text">
-                        Shree Shankaracharya Institute of Management & Technology (SSIPMT), Raipur<br>
-                        Graduated: 2014
-                    </p>
-                    <p class="section-text" style="margin-top: 0.75rem; font-style: italic; color: #94a3b8;">
-                        Self-taught full-stack web development (2017-2018) · Online coursework in JavaScript, React, Node.js, and TypeScript · Active open-source contributor
-                    </p>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="section-title">Key Achievements</h2>
-                <ul>
-                    <li>Architected and deployed 6+ production SaaS applications independently from concept to launch</li>
-                    <li>Achieved 99/100 Lighthouse performance score on bsrfilms.com through Core Web Vitals optimization</li>
-                    <li>Built and open-sourced AI-powered MCP Server Hub integrating Claude API for SEO automation</li>
-                    <li>Maintained 99.9% uptime across all deployed applications with proactive monitoring</li>
-                </ul>
-            </section>
-        </main>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-label">Full-Stack MarTech Developer · SEO Engineer</div>
+    <h1>I build tools<br>that <em>rank</em> and<br>ship.</h1>
+    <p class="hero-desc">7+ years building AI-powered SaaS, SEO automation pipelines, and marketing tech. From terminal-based GSC workflows to production Next.js products — I close the loop between engineering and growth.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">
+        <i data-lucide="layers" style="width:16px;height:16px"></i>
+        View projects
+      </a>
+      <a href="#casestudy" class="btn-ghost">
+        <i data-lucide="bar-chart-2" style="width:16px;height:16px"></i>
+        SEO case study
+      </a>
+      <a href="https://github.com/mynk717" target="_blank" rel="noopener noreferrer" class="btn-ghost">
+        <i data-lucide="github" style="width:16px;height:16px"></i>
+        GitHub
+      </a>
     </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">7+</div>
+        <div class="stat-label">Years experience</div>
+      </div>
+      <div>
+        <div class="stat-num">400+</div>
+        <div class="stat-label">Non-branded keyword footprint grown</div>
+      </div>
+      <div>
+        <div class="stat-num">6</div>
+        <div class="stat-label">Live products shipped</div>
+      </div>
+      <div>
+        <div class="stat-num">99/100</div>
+        <div class="stat-label">Lighthouse score</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <div class="section-tag">About</div>
+        <h2 class="section-title" style="margin-bottom:var(--space-8)">MarTech at the<br>intersection of code<br><em style="font-family:var(--font-display);font-style:italic;color:var(--color-primary)">and growth.</em></h2>
+        <p>I'm Mayank Shukla — a Full-Stack developer and MarTech engineer based in Raipur, India. My work lives at the edge where engineering meets SEO: building the tools, pipelines, and products that make growth measurable and repeatable.</p>
+        <p>I don't just implement SEO — I automate it. From terminal-based GSC API workflows and AI-powered content pipelines to custom Streamlit dashboards for SEO reporting, <strong>I build the infrastructure that marketers wish existed.</strong></p>
+        <p>Currently building <strong>Marketing Dime</strong> (full-stack MarTech platform), <strong>Solar Arrow</strong> (CRM SaaS), and managing ongoing SEO growth for e-commerce clients — shipping from Next.js to production, daily.</p>
+        <div class="about-links">
+          <a href="https://linkedin.com/in/seomynk" target="_blank" rel="noopener noreferrer" class="about-link"><i data-lucide="linkedin" style="width:13px;height:13px"></i> seomynk</a>
+          <a href="https://github.com/mynk717" target="_blank" rel="noopener noreferrer" class="about-link"><i data-lucide="github" style="width:13px;height:13px"></i> mynk717</a>
+          <a href="mailto:shukla.mayank247@gmail.com" class="about-link"><i data-lucide="mail" style="width:13px;height:13px"></i> Email me</a>
+        </div>
+      </div>
+      <div class="skills-list">
+        <div class="section-tag">Stack</div>
+        <div class="skill-row"><span class="skill-label">Frontend</span><div class="skill-tags"><span class="skill-tag">Next.js 14+</span><span class="skill-tag">React 18</span><span class="skill-tag">TypeScript</span><span class="skill-tag">Tailwind CSS</span></div></div>
+        <div class="skill-row"><span class="skill-label">Backend</span><div class="skill-tags"><span class="skill-tag">Node.js</span><span class="skill-tag">REST APIs</span><span class="skill-tag">Sanity CMS</span><span class="skill-tag">Telegram Bot</span></div></div>
+        <div class="skill-row"><span class="skill-label">SEO/GEO/AEO</span><div class="skill-tags"><span class="skill-tag">Technical SEO</span><span class="skill-tag">Schema Markup</span><span class="skill-tag">Core Web Vitals</span><span class="skill-tag">AIO/GEO</span></div></div>
+        <div class="skill-row"><span class="skill-label">Google APIs</span><div class="skill-tags"><span class="skill-tag">GSC</span><span class="skill-tag">GA4</span><span class="skill-tag">Google Ads</span><span class="skill-tag">Merchant Center</span></div></div>
+        <div class="skill-row"><span class="skill-label">AI / Automation</span><div class="skill-tags"><span class="skill-tag">Claude API</span><span class="skill-tag">Gemini API</span><span class="skill-tag">Perplexity API</span><span class="skill-tag">MCP Servers</span></div></div>
+        <div class="skill-row"><span class="skill-label">DevOps</span><div class="skill-tags"><span class="skill-tag">Vercel</span><span class="skill-tag">GCP</span><span class="skill-tag">GitHub Actions</span><span class="skill-tag">CI/CD</span></div></div>
+        <div class="skill-row"><span class="skill-label">Terminal / CLI</span><div class="skill-tags"><span class="skill-tag">PowerShell</span><span class="skill-tag">WSL/Ubuntu</span><span class="skill-tag">cURL</span><span class="skill-tag">Bash scripting</span></div></div>
+        <div class="skill-row"><span class="skill-label">E-commerce</span><div class="skill-tags"><span class="skill-tag">Shopify</span><span class="skill-tag">Liquid</span><span class="skill-tag">GraphQL API</span><span class="skill-tag">Google Merchant</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:var(--color-surface-offset)">
+  <div class="container">
+    <div class="section-tag reveal">Projects</div>
+    <h2 class="section-title reveal" style="margin-bottom:var(--space-10)">Shipped and live.</h2>
+    <div class="projects-grid reveal">
+
+      <!-- Featured: Marketing Dime -->
+      <div class="project-card featured">
+        <div>
+          <div class="project-meta">
+            <span class="project-type">MarTech Platform · Flagship</span>
+            <div class="project-links">
+              <a href="https://mktgdime.com" target="_blank" rel="noopener noreferrer" class="project-link"><i data-lucide="external-link" style="width:12px;height:12px"></i> Live</a>
+            </div>
+          </div>
+          <div class="project-name" style="margin-top:var(--space-4);margin-bottom:var(--space-3)">Marketing Dime</div>
+          <p class="project-desc">Full-stack MarTech platform and multi-service operations hub. Built with Next.js 14, Sanity CMS, TypeScript, and multi-tenant architecture. Serves as both a client-facing platform and personal brand hub for MarTech tooling, SEO Lab content, and MarTech workflows and local marketing operations.</p>
+          <div class="project-stack" style="margin-top:var(--space-6)">
+            <span class="stack-tag">Next.js 14</span><span class="stack-tag">Sanity CMS</span><span class="stack-tag">TypeScript</span><span class="stack-tag">Multi-tenant</span><span class="stack-tag">Vercel</span>
+          </div>
+        </div>
+        <div class="project-metric">
+          <div class="metric-item">
+            <div class="metric-val">MarTech</div>
+            <div class="metric-desc">SEO + Dev platform in one</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">mdn.mktgdime.com</div>
+            <div class="metric-desc">Multi-service, locally optimized marketing operations platform. Built with Next.js for service positioning, local SEO visibility, and productized MarTech workflows.</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">sa.mktgdime.com</div>
+            <div class="metric-desc">Solar Arrow SaaS — live</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solar Arrow -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-type">CRM SaaS</span>
+          <div class="project-links">
+            <a href="https://sa.mktgdime.com" target="_blank" rel="noopener noreferrer" class="project-link"><i data-lucide="external-link" style="width:12px;height:12px"></i> Live</a>
+          </div>
+        </div>
+        <div class="project-name">Solar Arrow</div>
+        <p class="project-desc">CRM SaaS for solar panel sales teams. Lead tracking, quote generation, real-time Telegram notifications. Powered by Google Sheets API as a no-DB backend for fast field deployment.</p>
+        <div class="project-stack">
+          <span class="stack-tag">Next.js</span><span class="stack-tag">Google Sheets API</span><span class="stack-tag">Telegram Bot</span><span class="stack-tag">TypeScript</span>
+        </div>
+      </div>
+
+      <!-- MCP Server Hub -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-type">Open Source · AI Tooling</span>
+          <div class="project-links">
+            <a href="https://github.com/mynk717/mktdm-mcp-hub" target="_blank" rel="noopener noreferrer" class="project-link"><i data-lucide="github" style="width:12px;height:12px"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="project-name">MCP Server Hub</div>
+        <p class="project-desc">Open-source MCP server collection for AI-powered SEO research, content generation, and technical audits. Integrates directly with Claude API for automated competitor analysis and SEO workflows.</p>
+        <div class="project-stack">
+          <span class="stack-tag">Claude API</span><span class="stack-tag">MCP Protocol</span><span class="stack-tag">Node.js</span><span class="stack-tag">TypeScript</span>
+        </div>
+      </div>
+
+      <!-- PingWing -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-type">WhatsApp CRM</span>
+          <div class="project-links">
+            <a href="https://github.com/mynk717/wa-mktgdime" target="_blank" rel="noopener noreferrer" class="project-link"><i data-lucide="github" style="width:12px;height:12px"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="project-name">PingWing</div>
+        <p class="project-desc">WhatsApp-based CRM application for managing customer communications with automated responses, contact management, and business workflow automation over the WhatsApp API.</p>
+        <div class="project-stack">
+          <span class="stack-tag">WhatsApp API</span><span class="stack-tag">Node.js</span><span class="stack-tag">TypeScript</span><span class="stack-tag">Automation</span>
+        </div>
+      </div>
+
+      <!-- BSR Films -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-type">Client · Portfolio Site</span>
+          <div class="project-links">
+            <a href="https://bsrfilms.com" target="_blank" rel="noopener noreferrer" class="project-link"><i data-lucide="external-link" style="width:12px;height:12px"></i> Live</a>
+          </div>
+        </div>
+        <div class="project-name">BSR Films</div>
+        <p class="project-desc">High-performance portfolio site for a film production company. Achieved 99/100 Lighthouse performance score. Built with Next.js and Tailwind CSS with custom motion design and SEO-optimized structure.</p>
+        <div class="project-stack">
+          <span class="stack-tag">Next.js</span><span class="stack-tag">Tailwind CSS</span><span class="stack-tag">99/100 Lighthouse</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section id="casestudy">
+  <div class="container">
+    <div class="section-tag reveal">SEO Case Study</div>
+    <h2 class="section-title reveal" style="margin-bottom:var(--space-8)">Shifted a branded-heavy Shopify store toward non-branded discovery — 400+ new query entries in GSC footprint within 30 days.</h2>
+    <div class="case-study reveal">
+      <div class="case-header">
+        <div class="case-client">Client — Shree Shivam Attire · shreeshivam.com · Shopify</div>
+        <div class="case-title">Starting from a store where over 95% of traffic was branded search, we built non-branded discovery from scratch. Through technical fixes, canonical resolution, and targeted blog content, we grew the non-branded GSC footprint to 400+ indexed queries and drove 1,504 impressions from 6 newly published blog URLs — in under 30 days.</div>
+      </div>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <div class="case-metric-val">400+</div>
+          <div class="case-metric-label">New non-branded keyword footprint</div>
+        </div>
+        <div class="case-metric">
+          <div class="case-metric-val">1,504</div>
+          <div class="case-metric-label">GSC impressions from blog content</div>
+        </div>
+        <div class="case-metric">
+          <div class="case-metric-val">95%</div>
+          <div class="case-metric-label">Branded-heavy baseline</div>
+        </div>
+        <div class="case-metric">
+          <div class="case-metric-val">Early</div>
+          <div class="case-metric-label">Discovery impressions & clicks</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <div>
+          <div class="case-section-title">The Problem</div>
+          <ul class="case-list">
+            <li>95%+ of all traffic was branded-only (zero discovery traffic)</li>
+            <li>Indexed pages dropped 40% — from 655 to 389 pages</li>
+            <li>Impressions declining from 4,900/day to ~2,600/day</li>
+            <li>Kurti-set collection: 77 SKUs, only 15 clicks/month</li>
+            <li>301 redirect loop on primary collection URL</li>
+          </ul>
+          <div class="case-section-title" style="margin-top:var(--space-8)">The Stack Used</div>
+          <ul class="case-list">
+            <li>GSC API · GA4 · Shopify GraphQL API</li>
+            <li>Notion API — keyword tracking + content pipeline</li>
+            <li>Custom Streamlit dashboard (shree_seo_engine)</li>
+            <li>DataForSEO · Python automation · Google Data Studio</li>
+            <li>GCP Service Account for API auth</li>
+          </ul>
+        </div>
+        <div>
+          <div class="case-section-title">What I Did</div>
+          <ul class="case-list">
+            <li>Resolved 301 redirect loop — fixed canonical chain on kurti-set URL</li>
+            <li>Sitemap resubmitted Apr 13 2026 — used as official sprint baseline</li>
+            <li>Published 4 blog articles targeting non-branded discovery queries</li>
+            <li>Built 17-issue technical register with full Notion SEO tracker</li>
+            <li>Automated weekly GSC reporting via Python + Streamlit dashboard</li>
+            <li>Set up Google Data Studio live connector via Apps Script</li>
+          </ul>
+          <div class="case-section-title" style="margin-top:var(--space-8)">Results & Context</div>
+          <ul class="case-list">
+            <li><strong>Result:</strong> Grew non-branded keyword footprint from near-zero to 400+ queries in GSC — a shift from 95% branded baseline toward organic discovery.</li>
+            <li><strong>Context:</strong> Most keywords started at zero impressions. These are GSC-indexed non-branded queries, not keywords with confirmed search demand.</li>
+            <li>Drove early discovery impressions and clicks across new non-branded queries.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background:var(--color-surface-offset)">
+  <div class="container">
+    <div class="section-tag reveal">Experience</div>
+    <h2 class="section-title reveal" style="margin-bottom:var(--space-10)">7+ years, shipping.</h2>
+    <div class="exp-timeline reveal">
+      <div class="exp-item">
+        <div class="exp-period">2022 – Present</div>
+        <div>
+          <div class="exp-role">Full-Stack MarTech Developer & SEO Consultant</div>
+          <div class="exp-company">Marketing Dime — Freelance / Remote</div>
+          <ul class="exp-bullets">
+            <li>Built Marketing Dime (mktgdime.com) — full-stack MarTech + multi-service marketing operations platform using Next.js 14, Sanity CMS, TypeScript</li>
+            <li>Developed open-source MCP Server Hub for AI-powered SEO research using Claude API</li>
+            <li>Created Solar Arrow CRM SaaS with Google Sheets API and Telegram Bot integration</li>
+            <li>Managing SEO for shreeshivam.com (Shopify) — GSC, GA4, Google Merchant via terminal CLI</li>
+            <li>Built shree_seo_engine: custom multi-page Streamlit dashboard for live SEO reporting</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-period">2021 – 2022</div>
+        <div>
+          <div class="exp-role">Digital Marketing Specialist</div>
+          <div class="exp-company">Wallfort — Real Estate · Raipur</div>
+          <ul class="exp-bullets">
+            <li>Led SEO and social media strategy for real estate firm</li>
+            <li>Implemented technical SEO, content strategy, and Google My Business management</li>
+            <li>Led analytics tracking and lead generation campaign setup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-period">2018 – 2021</div>
+        <div>
+          <div class="exp-role">SEO Analyst</div>
+          <div class="exp-company">Black Book Investment / JGRF Technology</div>
+          <ul class="exp-bullets">
+            <li>Technical SEO audits, keyword research, and on-page optimization for multiple clients</li>
+            <li>Built foundational expertise in Google Analytics, Search Console, and campaign management</li>
+            <li>Content optimization and analytics tracking across client portfolio</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid reveal">
+      <div>
+        <div class="contact-availability">
+          <div class="avail-dot"></div>
+          Available for remote full-time & contract
+        </div>
+        <h2 class="contact-headline">Let's build<br>something that <em>ranks</em><br>and ships.</h2>
+        <p class="contact-sub">Looking for a developer who bridges MarTech, SEO automation, and full-stack engineering? I'm open to remote roles, freelance contracts, and product collaborations. Minimum ₹1L/month.</p>
+        <a href="mailto:shukla.mayank247@gmail.com" class="btn-primary" style="display:inline-flex;">
+          <i data-lucide="mail" style="width:16px;height:16px"></i>
+          shukla.mayank247@gmail.com
+        </a>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:shukla.mayank247@gmail.com" class="contact-link">
+          <span class="contact-link-icon"><i data-lucide="mail" style="width:18px;height:18px"></i></span>
+          <div><div class="contact-link-label">Email</div><div class="contact-link-val">shukla.mayank247@gmail.com</div></div>
+        </a>
+        <a href="https://linkedin.com/in/seomynk" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <span class="contact-link-icon"><i data-lucide="linkedin" style="width:18px;height:18px"></i></span>
+          <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-val">linkedin.com/in/seomynk</div></div>
+        </a>
+        <a href="https://github.com/mynk717" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <span class="contact-link-icon"><i data-lucide="github" style="width:18px;height:18px"></i></span>
+          <div><div class="contact-link-label">GitHub</div><div class="contact-link-val">github.com/mynk717</div></div>
+        </a>
+        <a href="tel:+918349091717" class="contact-link">
+          <span class="contact-link-icon"><i data-lucide="phone" style="width:18px;height:18px"></i></span>
+          <div><div class="contact-link-label">Phone / WhatsApp</div><div class="contact-link-val">+91 83490 91717</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-mono">© 2026 Mayank Shukla · Raipur, India</span>
+      <span class="footer-mono">Built with Next.js · Hosted on GitHub Pages</span>
+      <span class="footer-mono">Full-Stack MarTech Developer</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Icons
+lucide.createIcons();
+
+// Theme toggle
+(function(){
+  const t = document.querySelector('[data-theme-toggle]');
+  const r = document.documentElement;
+  let d = 'dark'; // default dark
+  r.setAttribute('data-theme', d);
+  if(t) {
+    t.addEventListener('click', () => {
+      d = d === 'dark' ? 'light' : 'dark';
+      r.setAttribute('data-theme', d);
+      t.innerHTML = d === 'dark'
+        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'
+        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+      lucide.createIcons();
+    });
+  }
+})();
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
