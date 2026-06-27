@@ -204,7 +204,7 @@ export default function Home() {
             <h2 className="section-title">Availability</h2>
             <div className="project-card">
               <p className="section-text">
-                Open to remote part-time and project-based opportunities. Flexible hours and immediate start.
+                Available for full-time remote — immediate start
               </p>
             </div>
           </section>
