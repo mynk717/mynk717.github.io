@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How ChatGPT Understands Your Questions?</title>
+    <link rel="canonical" href="https://mktgdime.com/blog/how-chatgpt-understands-your-questions" />
+    <meta property="og:title" content="How ChatGPT Understands Your Questions?" />
+    <meta property="og:description" content="A grandfather's tales of telecom and tiffins, explaining how modern AI like ChatGPT actually works." />
+    <meta property="og:url" content="https://mynk717.github.io/blog/how-chatgpt-understands-your-questions.html" />
+    <meta property="og:type" content="article" />
+    <meta name="author" content="Mayank Shukla" />
+    <style>
+        body {
+            background-color: #0f0f0f;
+            color: #f0f0f0;
+            font-family: system-ui, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #0070f3;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+        }
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        em {
+            color: #aaa;
+            font-style: italic;
+            display: block;
+            margin-top: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid #0070f3;
+        }
+        pre {
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            border: 1px solid #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #333;
+            text-align: left;
+        }
+        th {
+            background-color: #1a1a1a;
+        }
+        .bio {
+            margin-top: 3rem;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            border-left: 4px solid #0070f3;
+        }
+        .bio p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+        }
+        a {
+            color: #0070f3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>How ChatGPT Understands Your Questions?</h1>
+        
+        <h2>Opening</h2>
+        <p>Ten-year-old Arya was struggling with her science homework. She grabbed her mother's phone, tapped a few buttons, and asked, "How do plants eat?" Within three seconds, a perfectly structured, easy-to-read answer appeared on the screen.</p>
+        <p>Her eyes went wide. She ran out to the verandah, where her grandfather, Dadu—a retired BSNL telecom engineer from Raipur—was sipping his evening chai.</p>
+        <p>"Dadu, is someone sitting inside this phone typing so fast?" she asked, presenting the screen to him.</p>
+        <p>Dadu chuckled, setting down his cup. "No, beta. It's not a person. It's something much more fascinating." He patted the empty chair beside him. "Sit. Let me tell you a story."</p>
+
+        <h2>Section 1 — What is an LLM?</h2>
+        <p>"Have you seen Ramu Kaka at the railway station?" Dadu began. "The man who has run his chai stall there for forty years?"</p>
+        <p>"Yes," Arya nodded. "He makes the best ginger tea."</p>
+        <p>"Exactly. Over those forty years, Ramu Kaka has heard millions of conversations from passengers. He never wrote a single thing down in a notebook. But if you ask him anything—about the train schedules, the weather in nearby villages, or even local politics—he knows the answer. He doesn't go searching through a filing cabinet. He simply answers from the patterns he absorbed from all those people."</p>
+        <p>"This is what a Large Language Model, or an LLM, does. Instead of running a chai stall, an LLM is a computer program that has 'listened' to almost everything written on the internet. It absorbs the patterns of how humans talk and write."</p>
+        <p>Dadu paused to let it sink in. "These LLMs solve a big problem: they let us talk to machines like we talk to humans. You use them every day without realizing it—when your phone suggests the next word to type, or when you ask a smart speaker a question."</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Popular LLM</th>
+                    <th>Company</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ChatGPT</td>
+                    <td>OpenAI</td>
+                </tr>
+                <tr>
+                    <td>Claude</td>
+                    <td>Anthropic</td>
+                </tr>
+                <tr>
+                    <td>Gemini</td>
+                    <td>Google</td>
+                </tr>
+                <tr>
+                    <td>Llama</td>
+                    <td>Meta</td>
+                </tr>
+                <tr>
+                    <td>Mistral</td>
+                    <td>Mistral AI</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <em>"An LLM is Ramu Kaka — trained on the world's conversations, answering from absorbed patterns, not a filing cabinet."</em>
+
+        <h2>Section 2 — What Happens When You Hit Send?</h2>
+        <p>"So, when I typed 'How do plants eat', what happened?" Arya asked.</p>
+        <p>"Think of the DTDC courier system," Dadu replied. "When we send a parcel to your aunt in Delhi, you just drop it at the shop. But behind the scenes, that parcel goes to a sorting hub, gets labeled, put on a truck, rerouted at a bigger hub, and finally delivered. You never see the process; you just know the parcel arrived."</p>
+        <p>"When you hit send on ChatGPT, it's not searching Google. It's generating the answer, word by word. It's like a master chef who has memorized ten thousand recipes. When you ask for a dish, the chef doesn't read out an old recipe—they use their knowledge to create a completely new dish right there in front of you."</p>
+        
+<pre>
+You Type → Tokenizer → Transformer Brain → Word-by-Word Output → You Read
+</pre>
+
+        <em>"Every answer is a journey, not a retrieval."</em>
+
+        <h2>Section 3 — Why Computers Don't Understand Human Language</h2>
+        <p>"But why can't the phone just understand my English?" Arya frowned.</p>
+        <p>"Remember when we went to the old PSU bank last week?" Dadu smiled. "The cashier uncle behind the glass counter. If you walk up to him and just say, 'Mere ko paisa chahiye' (I want money), he can't help you."</p>
+        <p>"He needs a form!" Arya remembered.</p>
+        <p>"Exactly! You must fill out the form, write your account number, and sign it. Language is our human emotion, but computers are like that strict cashier. They only understand numbers. If you type the letter 'A', the computer sees the number 65. So, before the machine can even think about your question, it must convert your words into numbers it can process."</p>
+        
+        <em>"Before a machine can think, it must count."</em>
+
+        <h2>Section 4 — Tokenization</h2>
+        <p>"So it turns every letter into a number?"</p>
+        <p>"Not exactly letters," Dadu said. "It uses something smarter. Have you heard of the Mumbai Dabbawaalas?"</p>
+        <p>"The men who deliver lunchboxes?"</p>
+        <p>"Yes. They don't carry one tiffin from one house straight to one office. They group them. They use short codes painted on the boxes—like 'VL-9-A3-19'—to sort them by area and deliver them with perfect precision. These codes are called tokens."</p>
+        <p>"ChatGPT does the same. It breaks your sentence into chunks called tokens. Sometimes a token is a whole word, sometimes it's just a piece of a word."</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Word</th>
+                    <th>Tokens</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Apple</td>
+                    <td>1 token ("Apple")</td>
+                </tr>
+                <tr>
+                    <td>Running</td>
+                    <td>2 tokens ("Run", "ning")</td>
+                </tr>
+                <tr>
+                    <td>Unbelievable</td>
+                    <td>3 tokens ("Un", "believ", "able")</td>
+                </tr>
+                <tr>
+                    <td>ChatGPT</td>
+                    <td>2 tokens ("Chat", "GPT")</td>
+                </tr>
+                <tr>
+                    <td>!</td>
+                    <td>1 token ("!")</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>"But remember," Dadu warned, "ChatGPT has a 'context window'. Think of it as a short-term memory box. Once the box is full, the oldest items fall out to make room for new ones."</p>
+
+<pre>
+|←————— Context Window (ChatGPT's memory) —————→|
+[ Old Chat (falls out) ] [ Your Last Message ] [ New Reply ]
+</pre>
+
+        <p>"And it can also change its 'Temperature'. If the temperature is low, say 0.1, it's very predictable: 'Paris is the capital of France'. But if we turn it up to 1.5, it gets creative: 'Paris — a city sewn in golden light and café smoke'."</p>
+
+        <em>"Wisdom enters only in measured pieces."</em>
+
+        <h2>Section 5 — Transformers</h2>
+        <p>"Now for the most important part," Dadu leaned in. "The brain itself. We call it a Transformer."</p>
+        
+        <h3>Story A: The Village Panchayat</h3>
+        <p>"In the old days, computers read sentences like a village sarpanch listening to complaints. The sarpanch hears one person at a time. By the time the tenth person speaks, the sarpanch has forgotten the exact details of the first complaint. It was slow and forgetful."</p>
+
+        <h3>Story B: The Digital Gram Sabha</h3>
+        <p>"Then came a new invention called 'Self-Attention'. Imagine a modern digital gram sabha where everyone types their issues on a shared big screen at the same time. The admin sees all the problems simultaneously, cross-references them, and finds the connections instantly."</p>
+        <p>"Because it reads everything at once, it understands context. If you say 'bank' near 'manager', it knows you mean a financial bank. But if you say 'bank' near 'river', it knows you mean a riverbank."</p>
+
+        <h3>Story C: The Good Doctor</h3>
+        <p>"It also uses 'Multi-head attention'. A good doctor doesn't just check one thing. They check your pulse, look in your eyes, check your tongue, and test your reflexes—all at once. Each check is like one 'attention head'. Together, they give the complete picture. The smartest models today run nearly a hundred of these checks in parallel."</p>
+
+        <h3>Story D: Train Berths</h3>
+        <p>"But if it reads all words at the same time, how does it know the order of the words?" Arya asked.</p>
+        <p>"Ah! Like IRCTC train tickets," Dadu beamed. "You might board the train last, but your seat number tells the system exactly where you belong. Every word is given a 'positional encoding'—a berth number—so the model always knows the order."</p>
+
+        <h3>Story E: The Two-Room Hub</h3>
+        <p>"Finally, it all works like a DTDC two-room hub. The Receiving Room—called the Encoder—reads and understands your parcel of words. Then, the Dispatch Room—the Decoder—uses that understanding to build and send the perfect reply."</p>
+
+<pre>
+Prompt → Tokens → Embeddings → Transformer Layers → Next Token Prediction → Response
+</pre>
+
+        <em>"The one who hears all voices at once — understands the most."</em>
+
+        <h2>Closing Thoughts</h2>
+        <ul>
+            <li><strong>What is an LLM?</strong> It's like Ramu Kaka, answering from absorbed life patterns rather than searching a file.</li>
+            <li><strong>How it works:</strong> It generates answers word-by-word like a chef making a new dish, not retrieving a pre-made one.</li>
+            <li><strong>Why numbers?</strong> Machines need language converted to numbers, like a bank cashier needing a form.</li>
+            <li><strong>Tokenization:</strong> Words are broken into precise codes, just like Dabbawaalas sort tiffins.</li>
+            <li><strong>Transformers:</strong> They read all words simultaneously to grasp true meaning, like a digital panchayat.</li>
+        </ul>
+
+        <p><em>The ideas in this blog are grounded in the 2017 Google research paper 'Attention Is All You Need' by Vaswani et al. — I've translated their solution logic into stories you can actually remember.</em></p>
+
+        <div class="bio">
+            <p><strong>Written by Mayank Shukla</strong> — Full-Stack MarTech & SEO Automation Engineer.</p>
+            <p>Building AI-native marketing systems at <a href="https://mktgdime.com">mktgdime.com</a>.</p>
+            <p>Part of ChaiCode GenAI Cohort 2026 — learning LLMs, RAG, Agents & MCP in JavaScript.</p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/seomynk">linkedin.com/in/seomynk</a> | GitHub: <a href="https://github.com/mynk717">github.com/mynk717</a></p>
+        </div>
+    </main>
+</body>
+</html>
